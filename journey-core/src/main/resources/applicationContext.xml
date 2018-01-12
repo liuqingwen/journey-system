@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        ">
+
+    <!--<import resource="classpath:applicationContext-jedis.xml"/>&lt;!&ndash; jedis 配置 &ndash;&gt;-->
+
+    <!--<bean id="journeyRedis" class="com.journey.redis.JourneyRedis"/>-->
+
+    <!--<import resource="classpath:applicationContext-aop.xml"/> &lt;!&ndash; jedis aop 日志 &ndash;&gt;-->
+
+    <!--<import resource="applicationContext-job.xml"/>&lt;!&ndash; job &ndash;&gt;-->
+
+</beans>

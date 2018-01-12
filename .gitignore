@@ -1,0 +1,7 @@
+
+.idea/
+journey-core/profiles.xml
+journey-core/target/
+journey-parent/journey-parent.iml
+journey-provider/journey-provider.iml
+
