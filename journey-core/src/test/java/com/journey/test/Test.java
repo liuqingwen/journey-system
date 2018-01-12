@@ -56,7 +56,6 @@ public class Test {
         while (plus-- > 0) {
             System.out.println(plus);
         }
-
     }
 
     @org.junit.Test
