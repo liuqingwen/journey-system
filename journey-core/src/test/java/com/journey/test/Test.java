@@ -56,7 +56,6 @@ public class Test {
         while (plus-- > 0) {
             System.out.println(plus);
         }
-
     }
 
     @org.junit.Test
@@ -136,7 +135,6 @@ public class Test {
         System.out.println(lNS);
         System.out.println(lNS1);
         System.out.println(lMS);
-
 
     }
 }
