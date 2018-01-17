@@ -24,13 +24,8 @@ public class JavaImageViewer {
     @Test
     public void test() {
 
-        EventQueue.invokeLater(() -> {
-            JFrame frame = new ImageViewerFrame();
-            frame.setTitle("ImageViewer");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-        });
-
+        int i = 1000_000_000;
+        System.out.println(i);
     }
 
 }
