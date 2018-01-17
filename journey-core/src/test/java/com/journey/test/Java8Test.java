@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -191,4 +192,14 @@ public class Java8Test {
         System.out.println(join);
     }
 
+    @Test
+    public void test13() {
+
+        UnaryOperator<String> one = (v1) -> "1 -" + v1;
+        UnaryOperator<String> two = (v2) -> "2 -" + v2;
+        Function<String, String> pipeline = one.andThen(two);
+        String apply = pipeline.apply("3");
+        System.out.println(apply);
+
+    }
 }
