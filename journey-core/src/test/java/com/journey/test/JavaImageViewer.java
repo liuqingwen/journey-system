@@ -12,7 +12,7 @@ import java.io.File;
  */
 public class JavaImageViewer {
 
-    public static void main(String[] args) {
+    public static strictfp void main(String[] args) {
         EventQueue.invokeLater(() -> {
             JFrame frame = new ImageViewerFrame();
             frame.setTitle("ImageViewer");
