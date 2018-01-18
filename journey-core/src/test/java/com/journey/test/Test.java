@@ -137,4 +137,17 @@ public class Test {
         System.out.println(lMS);
 
     }
+
+    @org.junit.Test
+    public void test9() {
+        System.out.println(Math.PI);
+        System.out.println(Math.sqrt(Math.PI));
+
+        System.out.println(StrictMath.PI);
+
+        System.out.println(1 << 67);
+        System.out.println(1 << 3);
+
+        System.out.println("Java\u2122");
+    }
 }
