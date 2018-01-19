@@ -8,6 +8,7 @@ import com.journey.entity.WeiXinUser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -149,5 +150,52 @@ public class Test {
         System.out.println(1 << 3);
 
         System.out.println("Java\u2122");
+    }
+
+    @org.junit.Test
+    public void test10() {
+
+        System.out.println((1 << (Integer.SIZE - 3)));
+        System.out.println(Integer.toBinaryString((1 << (Integer.SIZE - 3))));
+        System.out.println((1 << (Integer.SIZE - 3)) - 1);
+        System.out.println(Integer.toBinaryString((1 << (Integer.SIZE - 3)) - 1));
+
+        int index = 0;
+        rec:
+        for (index = 0;;index++) {
+            if (index > 5) {
+                break rec;
+            }
+            if (index < 5) {
+                System.out.println("retry");
+                continue rec;
+            }
+        }
+    }
+
+    @org.junit.Test
+    public void test11() {
+
+        System.out.println(-1 << (Integer.SIZE - 3));
+        System.out.println(Integer.toBinaryString(-1 << (Integer.SIZE - 3)));
+        System.out.println(~(-1 << (Integer.SIZE - 3)));
+
+        System.out.println("--------");
+        final int COUNT_BITS = Integer.SIZE - 3;
+        final int CAPACITY   = (1 << COUNT_BITS) - 1;
+
+        // runState is stored in the high-order bits
+        final int RUNNING    = -1 << COUNT_BITS;
+        final int SHUTDOWN   =  0 << COUNT_BITS;
+        final int STOP       =  1 << COUNT_BITS;
+        final int TIDYING    =  2 << COUNT_BITS;
+        final int TERMINATED =  3 << COUNT_BITS;
+
+        System.out.println(Integer.toBinaryString(RUNNING));
+        System.out.println(RUNNING+1);
+        System.out.println(Integer.toBinaryString(RUNNING+1));
+        System.out.println(Integer.toBinaryString(CAPACITY));
+        System.out.println(Integer.toBinaryString(~CAPACITY));
+
     }
 }

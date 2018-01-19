@@ -5,10 +5,10 @@ journey-core/target/
 journey-parent/journey-parent.iml
 journey-provider/journey-provider.iml
 
-journey-test/journey-core.iml
 journey-test/src/test/resources/
 journey-test/target/classes/com/
 journey-test/target/generated-sources/
 journey-test/target/generated-test-sources/
 journey-test/target/journey-core/WEB-INF/
 journey-test/target/test-classes/
+journey-test/journey-test.iml
