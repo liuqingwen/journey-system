@@ -5,15 +5,10 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.journey.entity.WeiXinUser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.alibaba.fastjson.serializer.SerializerFeature.QuoteFieldNames;
 
 /**
  * Created by liuqingwen on 2017/10/12.
@@ -196,6 +191,25 @@ public class Test {
         System.out.println(Integer.toBinaryString(RUNNING+1));
         System.out.println(Integer.toBinaryString(CAPACITY));
         System.out.println(Integer.toBinaryString(~CAPACITY));
+
+    }
+
+    @org.junit.Test
+    public void test12() {
+        Properties properties = System.getProperties();
+        Enumeration<?> enumerations = properties.propertyNames();
+        while (enumerations.hasMoreElements()) {
+            Object key = enumerations.nextElement();
+            System.out.println(String.format("%s : %s", key, properties.get(key)));
+        }
+
+        System.out.println("-----------------------------------");
+        System.out.println("-----------------------------------");
+
+        Map<String, String> env = System.getenv();
+        for (String key : env.keySet()) {
+            System.out.println(String.format("%s : %s", key, properties.get(key)));
+        }
 
     }
 }
