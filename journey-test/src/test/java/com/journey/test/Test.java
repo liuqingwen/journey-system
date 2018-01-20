@@ -211,5 +211,7 @@ public class Test {
             System.out.println(String.format("%s : %s", key, properties.get(key)));
         }
 
+        System.out.println(1 ^ 2 ^ 1);
+
     }
 }
