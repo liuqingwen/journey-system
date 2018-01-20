@@ -214,4 +214,32 @@ public class Test {
         System.out.println(1 ^ 2 ^ 1);
 
     }
+
+    @org.junit.Test
+    public void test13() {
+
+        Integer[][] arrss = {
+                {1,2,3,4},
+                {5,6,7,8}
+        };
+        for (int index = 0; index < arrss.length; index++) {
+            for (int index1 = 0; index1 < arrss[index].length; index1++) {
+                System.out.print(arrss[index][index1] + ",");
+            }
+            System.out.println();
+        }
+
+    }
+
+    @org.junit.Test
+    public void test14() {
+
+        WeiXinUser weiXinUser = new WeiXinUser();
+        weiXinUser.setNAME("liu");
+
+//        weiXinUser.getNAME().replace("1212");
+        System.out.println(weiXinUser.getNAME());
+
+
+    }
 }

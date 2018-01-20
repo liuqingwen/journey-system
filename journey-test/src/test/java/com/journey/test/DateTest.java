@@ -3,6 +3,7 @@ package com.journey.test;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -61,6 +62,16 @@ public class DateTest {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, -1);
         System.out.println(new Date().before(calendar.getTime()));
+
+    }
+
+    @Test
+    public void test4() {
+
+        LocalDate localDate = LocalDate.now();
+        System.out.println(localDate.getDayOfMonth());
+        LocalDate localDate1 = localDate.minusDays(localDate.getDayOfMonth() - 1);
+        System.out.println(localDate1.getDayOfMonth());
 
     }
 }
