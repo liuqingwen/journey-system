@@ -242,4 +242,18 @@ public class Test {
 
 
     }
+
+    @org.junit.Test
+    public void test15() {
+
+        WeiXinUser weiXinUser = new WeiXinUser();
+        eidit(weiXinUser);
+        System.out.println(weiXinUser == null ? null : JSON.toJSONString(weiXinUser));
+
+    }
+
+    private WeiXinUser eidit(WeiXinUser weiXinUser) {
+        weiXinUser.setNAME("liu");
+        return weiXinUser;
+    }
 }
