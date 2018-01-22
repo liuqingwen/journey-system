@@ -1,6 +1,8 @@
 package com.journey.test;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
+import com.journey.entity.WeiXinUser;
 import org.junit.Test;
 
 import java.util.*;
@@ -201,5 +203,22 @@ public class Java8Test {
         String apply = pipeline.apply("3");
         System.out.println(apply);
 
+    }
+
+    @Test
+    public void test14() {
+
+        WeiXinUser weiXinUser = Optional.ofNullable(getWeiXinUser()).orElseGet(() -> {WeiXinUser u = Optional.ofNullable(getWeiXinUser()).orElseGet(() -> {WeiXinUser u1 = getWeiXinUser("liu");System.out.println(2);return u1;});System.out.println(1);return u;});
+        System.out.println(weiXinUser == null ? null : JSON.toJSONString(weiXinUser));
+    }
+
+    private WeiXinUser getWeiXinUser() {
+        return null;
+    }
+
+    private WeiXinUser getWeiXinUser(String name) {
+        WeiXinUser weiXinUser = new WeiXinUser();
+        weiXinUser.setNAME("iiu");
+        return weiXinUser;
     }
 }
