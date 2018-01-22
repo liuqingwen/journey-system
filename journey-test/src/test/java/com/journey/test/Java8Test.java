@@ -210,6 +210,9 @@ public class Java8Test {
 
         WeiXinUser weiXinUser = Optional.ofNullable(getWeiXinUser()).orElseGet(() -> {WeiXinUser u = Optional.ofNullable(getWeiXinUser()).orElseGet(() -> {WeiXinUser u1 = getWeiXinUser("liu");System.out.println(2);return u1;});System.out.println(1);return u;});
         System.out.println(weiXinUser == null ? null : JSON.toJSONString(weiXinUser));
+
+        Optional<Object> empty = Optional.empty();
+
     }
 
     private WeiXinUser getWeiXinUser() {
