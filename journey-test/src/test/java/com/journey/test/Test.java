@@ -4,11 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.journey.entity.WeiXinUser;
+import com.journey.enums.aop.ResponseReturnType;
 
 import java.util.*;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.journey.enums.aop.EAopLogTypes.AOP_LOG;
 
 /**
  * Created by liuqingwen on 2017/10/12.
@@ -255,5 +258,14 @@ public class Test {
     private WeiXinUser eidit(WeiXinUser weiXinUser) {
         weiXinUser.setNAME("liu");
         return weiXinUser;
+    }
+
+    @org.junit.Test
+    public void test16() {
+
+        System.out.println("a".compareTo("b"));
+        System.out.println(AOP_LOG.ordinal());
+        System.out.println(ResponseReturnType.FAIL.ordinal());
+
     }
 }
