@@ -266,6 +266,7 @@ public class Test {
         System.out.println("a".compareTo("b"));
         System.out.println(AOP_LOG.ordinal());
         System.out.println(ResponseReturnType.FAIL.ordinal());
+        System.out.println("1&2&3".replaceAll("&", "[|]").replaceAll("\\[\\|\\]", "&"));
 
     }
 }
