@@ -82,7 +82,7 @@ public class DateTest {
         LocalDate working = LocalDate.now();
         long days = 0;
         System.out.println(days = working.toEpochDay() - graduate.toEpochDay());
-        System.out.println(days / 365 + "年 零" + (days % 365) + "天");
+        System.out.println("工作 " + days / 365 + " 年 零 " + (days % 365) + " 天");
 
     }
 }
