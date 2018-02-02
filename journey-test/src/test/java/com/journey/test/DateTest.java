@@ -74,4 +74,15 @@ public class DateTest {
         System.out.println(localDate1.getDayOfMonth());
 
     }
+
+    @Test
+    public void test5() {
+
+        LocalDate graduate = LocalDate.of(2014, 7, 1);
+        LocalDate working = LocalDate.now();
+        long days = 0;
+        System.out.println(days = working.toEpochDay() - graduate.toEpochDay());
+        System.out.println(days / 365 + "年 零" + (days % 365) + "天");
+
+    }
 }
