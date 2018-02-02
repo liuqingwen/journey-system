@@ -78,7 +78,7 @@ public class DateTest {
     @Test
     public void test5() {
 
-        LocalDate graduate = LocalDate.of(2014, 7, 1);
+        LocalDate graduate = LocalDate.of(2014, 7, 14);
         LocalDate working = LocalDate.now();
         long days = 0;
         System.out.println(days = working.toEpochDay() - graduate.toEpochDay());
