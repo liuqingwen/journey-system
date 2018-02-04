@@ -269,4 +269,14 @@ public class Test {
         System.out.println("1&2&3".replaceAll("&", "[|]").replaceAll("\\[\\|\\]", "&"));
 
     }
+
+    @org.junit.Test
+    public void test17() {
+
+        Integer[] is = new Integer[20];
+        List<Integer> ls = new ArrayList<>(20);
+        System.out.println(is.length);
+        System.out.println(ls.size());
+
+    }
 }
