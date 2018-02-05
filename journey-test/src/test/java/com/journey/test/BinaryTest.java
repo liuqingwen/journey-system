@@ -3,6 +3,8 @@ package com.journey.test;
 import org.junit.Test;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author liuqingwen
@@ -34,6 +36,23 @@ public class BinaryTest {
 
 //        268435455
 //        268435456
+    }
+
+    @Test
+    public void test2() {
+
+        System.out.println(1 << 14);
+        System.out.println(Integer.toBinaryString(1 << 14));
+
+
+        System.out.println(7 & 3);
+        System.out.println(7 % 3);
+        System.out.println(Integer.toBinaryString(7));
+        System.out.println(Integer.toBinaryString(3));
+
+        Map<Integer, Object> map = new HashMap<>(8);
+        map.put(3, "liu");
+        System.out.print(map);
     }
 
 
