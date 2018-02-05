@@ -53,6 +53,15 @@ public class BinaryTest {
         Map<Integer, Object> map = new HashMap<>(8);
         map.put(3, "liu");
         System.out.print(map);
+
+    }
+
+    @Test
+    public void test3() {
+
+        System.out.println(Integer.toString(15, 2));
+        System.out.println(Integer.toBinaryString(15));
+
     }
 
 
