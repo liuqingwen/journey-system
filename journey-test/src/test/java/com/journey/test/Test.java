@@ -279,4 +279,23 @@ public class Test {
         System.out.println(ls.size());
 
     }
+
+    @org.junit.Test
+    public void test18() {
+
+        byte[] bytes = new byte[]{};
+        System.out.println(bytes.getClass().getName());
+
+    }
+
+    @org.junit.Test
+    public void test19() {
+
+        System.out.println(Math.log(4));
+        System.out.println(Math.log(10));
+        System.out.println(Math.log(Math.E));
+        System.out.println(Math.log(10_000_000_000L));
+
+    }
+
 }
