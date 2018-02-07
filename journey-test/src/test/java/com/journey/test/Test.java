@@ -3,6 +3,8 @@ package com.journey.test;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.google.common.hash.HashFunction;
+import com.google.common.hash.Hashing;
 import com.journey.entity.WeiXinUser;
 import com.journey.enums.aop.ResponseReturnType;
 
@@ -295,6 +297,17 @@ public class Test {
         System.out.println(Math.log(10));
         System.out.println(Math.log(Math.E));
         System.out.println(Math.log(10_000_000_000L));
+
+    }
+
+    @org.junit.Test
+    public void test20() {
+        HashFunction md5 = Hashing.md5();
+        System.out.println(md5.hashBytes("liu".getBytes()).toString());
+        System.out.println(md5.hashBytes("liu".getBytes()).toString());
+        System.out.println(md5.hashBytes("liu".getBytes()).toString().length());
+        System.out.println(md5.hashBytes("qing".getBytes()).toString());
+        System.out.println(md5.hashBytes("wen".getBytes()).toString());
 
     }
 
