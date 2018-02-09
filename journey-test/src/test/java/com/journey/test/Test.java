@@ -20,6 +20,10 @@ import static com.journey.enums.aop.EAopLogTypes.AOP_LOG;
  */
 public class Test {
 
+    {
+        System.out.println(1);
+    }
+
     public static void main(String[] args) throws Exception {
 
         String userId = "112408574";
@@ -308,6 +312,17 @@ public class Test {
         System.out.println(md5.hashBytes("liu".getBytes()).toString().length());
         System.out.println(md5.hashBytes("qing".getBytes()).toString());
         System.out.println(md5.hashBytes("wen".getBytes()).toString());
+
+    }
+
+    @org.junit.Test
+    public void test21() {
+
+        List<String> s = new ArrayList<String>(){{add("1"); add("2");}};
+
+        System.out.println(s);
+
+        System.out.println(new Object(){}.getClass().getEnclosingClass());
 
     }
 
