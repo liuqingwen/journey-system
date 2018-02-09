@@ -64,5 +64,17 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test4() {
+
+        System.out.println(8 ^ 7);
+        System.out.println(Integer.toBinaryString(7));
+        System.out.println(Integer.toBinaryString(5));
+
+
+        System.out.println(3_000_000 * 255 / 1_000 / 1_000);
+
+    }
+
 
 }
