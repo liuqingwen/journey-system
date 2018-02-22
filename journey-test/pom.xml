@@ -169,13 +169,13 @@
 
     <properties>
         <!-- These properties will be set by the Maven Dependency plugin -->
-        <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+        <!--<annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>-->
         <!-- Uncomment to use the Type Annotations compiler. -->
         <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
     </properties>
 
   <build>
-      <finalName>journey-core</finalName>
+      <finalName>journey-test</finalName>
       <plugins>
 
           <plugin>
