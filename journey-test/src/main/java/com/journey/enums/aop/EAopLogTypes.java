@@ -1,12 +1,15 @@
 package com.journey.enums.aop;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 /**
  * Created by liuqingwen on 2017/6/19.
  */
-public enum EAopLogTypes {
+public @NonNull enum EAopLogTypes {
 
     AOP_LOG(1, "AOP Redis日志 : ");
 

@@ -7,6 +7,7 @@ import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.journey.entity.WeiXinUser;
 import com.journey.enums.aop.ResponseReturnType;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.*;
 import java.util.function.Supplier;
@@ -323,6 +324,24 @@ public class Test {
         System.out.println(s);
 
         System.out.println(new Object(){}.getClass().getEnclosingClass());
+    }
+
+    @org.junit.Test
+    public void test22() {
+
+        try {
+
+            List<@NonNull User> users = new ArrayList<>();
+            User user1 = null;
+            users.add(user1);
+            System.out.println(user1);
+
+            User user = new User(1, null);
+            @NonNull String name = user.getName();
+            System.out.println(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -104,6 +104,12 @@
           <version>1.1.0-RELEASE</version>
       </dependency>
 
+      <dependency>
+          <groupId>org.apache.zookeeper</groupId>
+          <artifactId>zookeeper</artifactId>
+          <version>3.5.3-beta</version>
+      </dependency>
+
       <!-- pdf 转 图片 -->
       <dependency>
           <groupId>org.apache.pdfbox</groupId>
@@ -129,6 +135,30 @@
       </dependency>
 
       <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>checker-qual</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>checker</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>compiler</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>jdk8</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
           <version>4.8.2</version>
@@ -137,16 +167,62 @@
 
   </dependencies>
 
+    <properties>
+        <!-- These properties will be set by the Maven Dependency plugin -->
+        <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
+        <!-- Uncomment to use the Type Annotations compiler. -->
+        <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
+    </properties>
+
   <build>
       <finalName>journey-core</finalName>
       <plugins>
+
+          <plugin>
+              <!-- This plugin will set properties values using dependency information -->
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>properties</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+
           <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.6.1</version>
               <configuration>
                   <source>1.8</source>
                   <target>1.8</target>
                   <compilerVersion>1.8</compilerVersion>
+                  <!--<compilerArguments>-->
+                      <!--<Xmaxerrs>10000</Xmaxerrs>-->
+                      <!--<Xmaxwarns>10000</Xmaxwarns>-->
+                  <!--</compilerArguments>-->
+                  <!--<annotationProcessorPaths>-->
+                      <!--<path>-->
+                          <!--<groupId>org.checkerframework</groupId>-->
+                          <!--<artifactId>checker</artifactId>-->
+                          <!--<version>2.3.2</version>-->
+                      <!--</path>-->
+                  <!--</annotationProcessorPaths>-->
+                  <!--<annotationProcessors>-->
+                      <!--&lt;!&ndash; Add all the checkers you want to enable here &ndash;&gt;-->
+                      <!--<annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>-->
+                  <!--</annotationProcessors>-->
+                  <!--<compilerArgs>-->
+                      <!--<arg>-AprintErrorStack</arg>-->
+                      <!--&lt;!&ndash; location of the annotated JDK, which comes from a Maven dependency &ndash;&gt;-->
+                      <!--<arg>-Xbootclasspath/p:${annotatedJdk}</arg>-->
+                      <!--&lt;!&ndash; Uncomment the following line to use the type annotations compiler. &ndash;&gt;-->
+                      <!--&lt;!&ndash; <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> &ndash;&gt;-->
+                      <!--&lt;!&ndash; Uncomment the following line to turn type-checking warnings into errors. &ndash;&gt;-->
+                      <!--&lt;!&ndash; <arg>-Awarns</arg> &ndash;&gt;-->
+                  <!--</compilerArgs>-->
               </configuration>
           </plugin>
 
