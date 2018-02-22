@@ -342,6 +342,19 @@ public class Test {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @org.junit.Test
+    public void test23() {
+
+        Map<String, Object> map = new HashMap<>(6);
+        map.put("liu", "庆文");
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            System.out.println(key + "-" + value);
+        }
+
 
     }
 
