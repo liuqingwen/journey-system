@@ -10,6 +10,7 @@ import com.journey.enums.aop.ResponseReturnType;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -355,6 +356,22 @@ public class Test {
             System.out.println(key + "-" + value);
         }
 
+
+    }
+
+    @org.junit.Test
+    public void test24() {
+
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        System.out.println(atomicInteger.getAndIncrement());
+        System.out.println(atomicInteger.getAndIncrement());
+
+    }
+
+    @org.junit.Test
+    public void test25() {
+
+        System.out.println(String.valueOf((char)(0+65)));
 
     }
 
