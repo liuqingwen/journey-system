@@ -3,6 +3,7 @@ package com.journey.test;
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.journey.entity.WeiXinUser;
@@ -24,6 +25,7 @@ public class Test {
 
     {
         System.out.println(1);
+        System.out.println("我是测试");
     }
 
     public static void main(String[] args) throws Exception {
@@ -375,4 +377,44 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void test26() {
+
+        List<Integer> list = new ArrayList<Integer>() {{add(1); add(2); add(4);}};
+        list.iterator().forEachRemaining(System.out::println);
+
+    }
+
+    @org.junit.Test
+    public void test27() {
+
+        HashSet<Integer> objects = Sets.newHashSet();
+        System.out.println(objects.add(1));
+        System.out.println(objects.add(1));
+
+
+    }
+
+    @org.junit.Test
+    public void test28() {
+
+        ArrayList<Integer> integers = Lists.newArrayList(1, 2, 3);
+        System.out.println(Arrays.toString(integers.toArray(new Integer[0])));
+        synchronized (integers) {
+            Iterator<Integer> iterator = integers.iterator();
+            while (iterator.hasNext()) {
+                iterator.next();
+                iterator.remove();
+            }
+        }
+        System.out.println(integers);
+
+    }
+
+    @org.junit.Test
+    public void test29() {
+
+        System.out.println(String.format("%s", "我是好人"));
+
+    }
 }
