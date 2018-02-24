@@ -162,4 +162,15 @@ public class JedisTest {
 
     }
 
+    @Test
+    public void test9() {
+
+        ShardedJedis shardedJedis = journeyRedis.getShardedJedis();
+        shardedJedis.hset("hset_java", "java1", "liu");
+        shardedJedis.hset("hset_java", "java2", "liu2");
+        shardedJedis.hset("hset_java", "java1", "liu3");
+        System.out.println(shardedJedis.hgetAll("hset_java"));
+
+    }
+
 }
