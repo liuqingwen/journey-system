@@ -1,6 +1,5 @@
 package com.journey.aop.redis;
 
-import com.google.common.base.Preconditions;
 import com.journey.enums.aop.EAopLogTypes;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,7 +21,7 @@ public class RedisBeforeExecuteAOP {
     public void redisBeforeCheck(JoinPoint joinpoint) throws Throwable {
         Object[] args = joinpoint.getArgs();
         logger.info("{} Jedis 操作参数 {} ", new Object[]{EAopLogTypes.AOP_LOG.getDescription(), args == null || args.length == 0 ? null : Arrays.toString(args)});
-        Preconditions.checkArgument(!(args == null || args.length == 0), "key不允许为空");
+//        Preconditions.checkArgument(!(args == null || args.length == 0), "key不允许为空");
     }
 
 }

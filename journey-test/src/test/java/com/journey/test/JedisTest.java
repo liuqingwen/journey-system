@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.ShardedJedis;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -151,9 +152,13 @@ public class JedisTest {
     @Test
     public void test8() {
 
-//        journeyRedis.getShardedJedis().getSet()
+        ShardedJedis shardedJedis = journeyRedis.getShardedJedis();
+        System.out.println(shardedJedis.get("name"));
+        System.out.println(shardedJedis.getSet("name", "刘庆文"));
+        System.out.println(shardedJedis.setnx("name1", "刘刘刘"));
 
-        System.out.println(journeyRedis.getShardedJedis().get("name"));
+
+        System.out.println(shardedJedis.del("name"));
 
     }
 
