@@ -399,6 +399,14 @@ public class Test {
     public void test28() {
 
         ArrayList<Integer> integers = Lists.newArrayList(1, 2, 3);
+
+        ListIterator<Integer> integerListIterator = integers.listIterator();
+        System.out.println(integerListIterator.nextIndex());
+        integerListIterator.next();
+        System.out.println(integerListIterator.nextIndex());
+        System.out.println(integerListIterator.nextIndex());
+
+
         System.out.println(Arrays.toString(integers.toArray(new Integer[0])));
         synchronized (integers) {
             Iterator<Integer> iterator = integers.iterator();
