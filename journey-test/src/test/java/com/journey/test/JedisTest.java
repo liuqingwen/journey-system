@@ -148,4 +148,13 @@ public class JedisTest {
         logger.info(""+journeyRedis.llen(key));
     }
 
+    @Test
+    public void test8() {
+
+//        journeyRedis.getShardedJedis().getSet()
+
+        System.out.println(journeyRedis.getShardedJedis().get("name"));
+
+    }
+
 }
