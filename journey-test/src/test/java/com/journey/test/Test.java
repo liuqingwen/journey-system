@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 import static com.journey.enums.aop.EAopLogTypes.AOP_LOG;
 
@@ -431,9 +432,28 @@ public class Test {
     public void test30() {
 
         HashMap<Object, Object> objectObjectHashMap = Maps.newHashMap();
+//        objectObjectHashMap.put("name", 1);
+//        objectObjectHashMap.putIfAbsent("name", 0);
+//        System.out.println(objectObjectHashMap.get("name"));
+
         objectObjectHashMap.put("name", 1);
-        objectObjectHashMap.putIfAbsent("name", 0);
-        System.out.println(objectObjectHashMap.get("name"));
+        objectObjectHashMap.compute("name", (o1, o2) -> null);
+        System.out.println(objectObjectHashMap.containsKey("name"));
+
+
+    }
+
+    @org.junit.Test
+    public void test31() {
+
+        Map<String, Object> map = new LinkedHashMap<String, Object>(10, 0.75F, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return size() > 10;
+            }
+        };
+        IntStream.range(0, 15).forEach(value -> map.put(String.valueOf(value), String.valueOf(value)));
+        map.forEach((key, value) -> System.out.println(key + "-" + value));
 
     }
 }
