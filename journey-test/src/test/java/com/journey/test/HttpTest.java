@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 /**
  * Created by liuqingwen on 2017/10/10.
@@ -51,6 +54,47 @@ public class HttpTest {
         System.out.println(returnV);
         System.out.println(returnV);
 
+    }
+
+    ExecutorService executorService = Executors.newFixedThreadPool(100 * Runtime.getRuntime().availableProcessors() * 2);
+
+    @Test
+    public void test2() throws IOException {
+
+//        http();
+
+        IntStream.range(0, 5).forEach(v -> executorService.execute(() -> {
+            try {
+                http();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+
+        Object lock = new Object();
+        synchronized (lock) {
+            while (true) {
+                System.out.println("--------------------");
+                try {
+                    lock.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+
+    }
+
+    OkHttpClient okHttpClient = new OkHttpClient();
+    private void http() throws IOException {
+
+        RequestBody requestBody = new FormBody.Builder().add("activityId", "3343a791-a623-428a-95db-cc38ce6f37e1")
+                .add("mobile", "18744034293").add("verifyCode", "adds").build();
+
+        Response response = okHttpClient.newCall(new Request.Builder().post(requestBody).url("https://test34mmarket.jiuxian.com/draw/getMobileVerifyCode").build()).execute();
+        System.out.println(response == null ? null : JSON.toJSONString(response.body().string()));
     }
 
 }
