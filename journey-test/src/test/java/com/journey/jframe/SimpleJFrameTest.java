@@ -29,7 +29,7 @@ public class SimpleJFrameTest {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        jFrame.setLocationByPlatform(true);
 //        addCompontent(jFrame, new LiuJComponent());
-        addCompontent(jFrame, new LiuShapCommponent());
+        addCompontent(jFrame, new LiuShapeComponent());
         jFrame.setVisible(true);
     }
 
@@ -56,7 +56,7 @@ public class SimpleJFrameTest {
 //        }
     }
 
-    static class LiuShapCommponent extends JComponent {
+    static class LiuShapeComponent extends JComponent {
 
         double leftx = 600, lefty = 400, radius = 200, with = 300, height = 200;
 
