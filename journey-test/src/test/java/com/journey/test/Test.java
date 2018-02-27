@@ -456,4 +456,14 @@ public class Test {
         map.forEach((key, value) -> System.out.println(key + "-" + value));
 
     }
+
+    @org.junit.Test
+    public void test32() {
+
+        System.out.println( 91 * 11);
+        IntStream.range(1, 9).forEach(v -> System.out.println(v * 91));
+
+        System.out.println(1001 * 234);
+
+    }
 }
