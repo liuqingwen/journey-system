@@ -27,9 +27,13 @@ public class SimpleJFrameTest {
         jFrame.setExtendedState(Frame.MAXIMIZED_BOTH);
         jFrame.setTitle("天天中彩票");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        jFrame.setBackground(SystemColor.desktop);
 //        jFrame.setLocationByPlatform(true);
-//        addCompontent(jFrame, new LiuJComponent());
-        addCompontent(jFrame, new LiuShapeComponent());
+        addCompontent(jFrame, new LiuJComponent());
+        JComponent liuShapeComponent = new LiuShapeComponent();
+        liuShapeComponent.setBackground(SystemColor.desktop);
+        addCompontent(jFrame, liuShapeComponent);
+        liuShapeComponent.add(new LiuJComponent());
         jFrame.setVisible(true);
     }
 
@@ -63,6 +67,7 @@ public class SimpleJFrameTest {
         @Override
         protected void paintComponent(Graphics g) {
             Graphics2D graphics2D = (Graphics2D)g;
+            graphics2D.setPaint(Color.BLUE.brighter().brighter().brighter());
 
             // 圆形
             Ellipse2D circle = new Ellipse2D.Double();
@@ -78,6 +83,8 @@ public class SimpleJFrameTest {
             // 矩形
             Rectangle2D rectangle = new Rectangle.Double(leftx - with / 2, lefty - height / 2, with, height);
             graphics2D.draw(rectangle);
+
+            graphics2D.setPaint(new Color(0, 128, 128));
 
             // 椭圆
             Ellipse2D ellipse = new Ellipse2D.Double(leftx - with / 2, lefty - height / 2, with, height);
