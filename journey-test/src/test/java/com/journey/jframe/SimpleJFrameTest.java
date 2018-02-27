@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.font.FontRenderContext;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
@@ -29,11 +30,11 @@ public class SimpleJFrameTest {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        jFrame.setBackground(SystemColor.desktop);
 //        jFrame.setLocationByPlatform(true);
-        addCompontent(jFrame, new LiuJComponent());
-        JComponent liuShapeComponent = new LiuShapeComponent();
-        liuShapeComponent.setBackground(SystemColor.desktop);
-        addCompontent(jFrame, liuShapeComponent);
-        liuShapeComponent.add(new LiuJComponent());
+        LiuJComponent liuJComponent = new LiuJComponent();
+        addComponent(jFrame, liuJComponent);
+//        JComponent liuShapeComponent = new LiuShapeComponent();
+//        liuShapeComponent.setBackground(SystemColor.desktop);
+//        addComponent(jFrame, liuShapeComponent);
         jFrame.setVisible(true);
     }
 
@@ -41,7 +42,7 @@ public class SimpleJFrameTest {
         return Toolkit.getDefaultToolkit().getScreenSize();
     }
 
-    public static void addCompontent(JFrame jFrame, JComponent... jComponent) {
+    public static void addComponent(JFrame jFrame, JComponent... jComponent) {
         if (jComponent != null) {
             Lists.newArrayList(jComponent).forEach(jc -> jFrame.add(jc));
         }
@@ -51,7 +52,18 @@ public class SimpleJFrameTest {
 
         @Override
         protected void paintComponent(Graphics g) {
-            g.drawString("刘庆文", 75, 100);
+
+            Graphics2D graphics2D = (Graphics2D)g;
+            graphics2D.setBackground(Color.BLUE);
+
+            Font apple_braille = new Font("Apple Braille", Font.BOLD, 14);
+            graphics2D.setFont(apple_braille);
+//            graphics2D.drawString("中国人", 75, 100);
+
+            FontRenderContext fontRenderContext = graphics2D.getFontRenderContext();
+            Rectangle2D r = apple_braille.getStringBounds("zhongguoren", fontRenderContext);
+            r.setRect(300, 300, 500, 200);
+            graphics2D.draw(r);
         }
 
 //        @Override
