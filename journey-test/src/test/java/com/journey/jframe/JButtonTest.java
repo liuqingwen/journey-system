@@ -42,9 +42,35 @@ public class JButtonTest {
 
             jPanel = new ButtonPanel();
             addComponent(this, jPanel);
-            addComponent(jPanel, new MyButton("Yellow", (actionEvent) -> jPanel.setBackground(Color.YELLOW)),
-                    new MyButton("Blue", (actionEvent) -> jPanel.setBackground(Color.BLUE)),
-                    new MyButton("Red", (actionEvent) -> jPanel.setBackground(Color.RED)));
+            addComponent(jPanel, new MyButton("Yellow", (actionEvent) -> {
+                        try {
+                            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+                            SwingUtilities.updateComponentTreeUI(this);
+                            jPanel.setBackground(Color.YELLOW);
+                        }catch (Exception e) {}
+                    }),
+                    new MyButton("Blue", (actionEvent) -> {
+                        try {
+                            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+                            SwingUtilities.updateComponentTreeUI(this);
+                            jPanel.setBackground(Color.BLUE);
+                        }catch (Exception e) {}
+                    }),
+                    new MyButton("Red", (actionEvent) ->  {
+                        try {
+                            UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+                            SwingUtilities.updateComponentTreeUI(this);
+                            jPanel.setBackground(Color.RED);
+                        }catch (Exception e) {}
+                    }),
+                    new MyButton("还原", actionEvent -> {
+                        try {
+                            UIManager.setLookAndFeel("com.apple.laf.AquaLookAndFeel");
+                            SwingUtilities.updateComponentTreeUI(this);
+                            jPanel.setBackground(Color.GRAY);
+                        }catch (Exception e) {}
+                    })
+            );
         }
 
         @Override
