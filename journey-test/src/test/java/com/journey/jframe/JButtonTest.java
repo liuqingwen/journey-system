@@ -2,6 +2,7 @@ package com.journey.jframe;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
@@ -71,6 +72,31 @@ public class JButtonTest {
                         }catch (Exception e) {}
                     })
             );
+
+            InputMap inputMap = jPanel.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+            inputMap.put(KeyStroke.getKeyStroke("control Y"), "jPanel.YELLOW");
+            inputMap.put(KeyStroke.getKeyStroke("control B"), "jPanel.BLUE");
+            inputMap.put(KeyStroke.getKeyStroke("control R"), "jPanel.RED");
+
+            ActionMap actionMap = jPanel.getActionMap();
+            actionMap.put("jPanel.YELLOW", new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    jPanel.setBackground(Color.YELLOW);
+                }
+            });
+            actionMap.put("jPanel.BLUE", new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    jPanel.setBackground(Color.BLUE);
+                }
+            });
+            actionMap.put("jPanel.RED", new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    jPanel.setBackground(Color.RED);
+                }
+            });
         }
 
         @Override
