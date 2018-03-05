@@ -488,4 +488,14 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void test35() {
+
+        String s = "hello";
+        System.out.println(s.codePointCount(0, s.length()));
+        System.out.println((char)s.offsetByCodePoints(0, 2));
+        System.out.println((char)s.codePointAt(2));
+
+    }
+
 }
