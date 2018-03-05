@@ -11,6 +11,7 @@ import com.journey.entity.WeiXinUser;
 import com.journey.enums.aop.ResponseReturnType;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+import java.io.File;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
@@ -466,4 +467,25 @@ public class Test {
         System.out.println(1001 * 234);
 
     }
+
+    @org.junit.Test
+    public void test33() {
+
+        int[] ints = new int[10];
+        ints[0] = 1;
+        ints[1] = 2;
+        ints[2] = 3;
+        System.out.print(ints.length);
+
+    }
+
+    @org.junit.Test
+    public void test34() {
+
+        System.out.println(File.separator);
+        System.out.println(File.pathSeparator);
+        System.out.println(File.pathSeparatorChar);
+
+    }
+
 }
