@@ -486,6 +486,8 @@ public class Test {
         System.out.println(File.pathSeparator);
         System.out.println(File.pathSeparatorChar);
 
+        System.out.println("--------------------------------\\n");
+        System.out.println("\\"+System.getProperty("line.separator").replaceAll("\\\\", "\\\\"));
     }
 
     @org.junit.Test
