@@ -1,9 +1,8 @@
-package com.journey.test;
+package com.journey.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
-import com.journey.redis.JourneyRedis;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
