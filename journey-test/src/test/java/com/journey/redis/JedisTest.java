@@ -21,9 +21,7 @@ import java.util.Map;
 /**
  * Created by liuqingwen on 2017/6/18.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class JedisTest {
+public class JedisTest extends JedisBase {
 
     private Logger logger = LoggerFactory.getLogger(JedisTest.class);
 
