@@ -1,9 +1,14 @@
-package com.journey.test;
+package com.journey.date;
 
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -83,6 +88,32 @@ public class DateTest {
         long days = 0;
         System.out.println(days = working.toEpochDay() - graduate.toEpochDay());
         System.out.println("工作 " + days / 365 + " 年 零 " + (days % 365) + " 天");
+
+    }
+
+    @Test
+    public void test6() {
+
+        LocalDateTime localDateTime = LocalDateTime.of(2018, Month.MARCH, 8, 16, 49, 42);
+//        System.out.println(localDateTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)));
+        System.out.println(localDateTime.getNano());
+        System.out.println(localDateTime.getSecond() * 1000);
+
+
+        System.out.println("--------------------------------");
+
+        LocalDateTime now = LocalDateTime.now();
+//        System.out.println(now.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL)));
+        System.out.println(now.getNano());
+        System.out.println(now.getSecond() * 1000);
+    }
+
+    @Test
+    public void test7() {
+
+        Instant instant = Instant.now();
+        System.out.println(instant.toEpochMilli());
+        System.out.println(instant.getNano());
 
     }
 }
