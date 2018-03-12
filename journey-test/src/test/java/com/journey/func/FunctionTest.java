@@ -16,7 +16,7 @@ public class FunctionTest {
 
         ResponseReturnType responseReturnType = ResponseReturnType.FAIL;
         System.out.println(((Supplier<String>)(() -> {switch(responseReturnType) {
-            case FAIL: return ResponseReturnType.FAIL.getDescription();
+            case FAIL: //return ResponseReturnType.FAIL.getDescription();
             case SUCCESS: return ResponseReturnType.SUCCESS.getDescription();
             default: return "不知道什么情况";
         }})).get());
