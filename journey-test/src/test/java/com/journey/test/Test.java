@@ -500,4 +500,12 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void test36() {
+//        set(0.1);
+    }
+
+    private int set(int i) {
+        System.out.println(i);
+    }
 }
