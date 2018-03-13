@@ -507,5 +507,6 @@ public class Test {
 
     private int set(int i) {
         System.out.println(i);
+        return i;
     }
 }
