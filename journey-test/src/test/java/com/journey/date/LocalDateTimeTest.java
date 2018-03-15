@@ -8,6 +8,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalUnit;
 import java.util.Locale;
 
 /**
@@ -107,6 +109,15 @@ public class LocalDateTimeTest {
     // 减法
     @Test
     public void test8() {
+
+        LocalDate minusDays = nowDate.minus(1, ChronoUnit.DAYS); // - a day
+        System.out.println(String.format("now date minus 1 of days = %s", minusDays));
+//        LocalDate minusHalfDays = nowDate.minus(1, ChronoUnit.HALF_DAYS); // - a half day
+//        System.out.println(String.format("now date minus 1 half of days = %s", minusHalfDays));
+        LocalDate minusWeeks = nowDate.minus(1, ChronoUnit.WEEKS); // - a week
+        System.out.println(String.format("now date minus 1 of weeks = %s", minusWeeks));
+        LocalDate minusMonths = nowDate.minus(1, ChronoUnit.MONTHS); // - a month
+        System.out.println(String.format("now date minus 1 of months = %s", minusMonths));
 
     }
 }
