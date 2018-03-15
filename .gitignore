@@ -8,7 +8,6 @@ journey-test/target/classes/com/
 journey-test/target/generated-sources/
 journey-test/target/generated-test-sources/
 journey-test/target/test-classes/
-journey-test/journey-test.iml
 journey-provider/src/
 journey-scala/project/
 journey-scala/src/test/
@@ -16,3 +15,4 @@ journey-scala/target/
 journey-test/target/classes/applicationContext-dubbo.xml
 journey-test/target/journey-core/
 journey-test/target/maven-status/
+journey-test/journey-test.iml
