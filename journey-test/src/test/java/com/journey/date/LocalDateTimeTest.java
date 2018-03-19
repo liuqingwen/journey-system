@@ -5,11 +5,9 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
-import java.time.temporal.TemporalUnit;
+import java.time.temporal.*;
 import java.util.Locale;
 
 /**
@@ -18,6 +16,14 @@ import java.util.Locale;
  */
 public class LocalDateTimeTest {
 
+//    java.time – 包含值对象的基础包
+//    java.time.chrono – 提供对不同的日历系统的访问
+//    java.time.format – 格式化和解析时间和日期
+//    java.time.temporal – 包括底层框架和扩展特性
+//    java.time.zone – 包含时区支持的类
+
+//    Joda-Time
+
     LocalDateTime localDateTime;
     // year month dayOfMonth(当前月的 第几天) hour minute second nanoOfsecond(当前秒的 多少纳秒)
     LocalDateTime definedLocalDateTime;
@@ -25,11 +31,12 @@ public class LocalDateTimeTest {
     LocalDate definedDate;
     {
         localDateTime = LocalDateTime.now();
+        System.out.println(String.format("now local date time = %s", localDateTime));
         definedLocalDateTime = LocalDateTime.of(2018, 03, 15, 11, 42, 51, 100);
         System.out.println(String.format("defined localDateTime is %s", definedLocalDateTime));
         nowDate = LocalDate.now();
         System.out.println(String.format("now localDate is %s", nowDate));
-        definedDate = LocalDate.of(2008, 12, 07);
+        definedDate = LocalDate.of(2008, 2, 07);
         System.out.println(String.format("defined localDate is %s", definedDate));
 
         System.out.println();
@@ -118,6 +125,30 @@ public class LocalDateTimeTest {
         System.out.println(String.format("now date minus 1 of weeks = %s", minusWeeks));
         LocalDate minusMonths = nowDate.minus(1, ChronoUnit.MONTHS); // - a month
         System.out.println(String.format("now date minus 1 of months = %s", minusMonths));
+        LocalDate minusPeriod = nowDate.minus(Period.of(1, 2, 1));
+        System.out.println(String.format("now date minus period = %s", minusPeriod));
+
+    }
+
+    // range
+    @Test
+    public void test9() {
+
+        ValueRange range = nowDate.range(ChronoField.DAY_OF_MONTH);
+        System.out.println(String.format("now date day of month is range = %s", range));
+        ValueRange rangeDefined = definedDate.range(ChronoField.DAY_OF_MONTH);
+        System.out.println(String.format("defined date day of month is range = %s", rangeDefined));
+
+    }
+
+    // period
+    @Test
+    public void test10() {
+
+        Period until = nowDate.until(LocalDate.now().plusDays(1));// +
+        System.out.println(String.format("now date util param date is period = %s", until.getDays()));
+        Period untilMinus = nowDate.until(LocalDate.now().minusDays(1));// -
+        System.out.println(String.format("now date util param date is period = %s", untilMinus.getDays()));
 
     }
 }
