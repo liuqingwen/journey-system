@@ -103,6 +103,7 @@ public class FunctionTest {
         return apply;
     }
 
+    // BinaryOperator
     @Test
     public void test3() {
 
