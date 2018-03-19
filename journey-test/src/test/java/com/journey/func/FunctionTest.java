@@ -7,10 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 import static java.util.stream.Collectors.toList;
 
@@ -104,5 +101,16 @@ public class FunctionTest {
         apply.sort(comparator);
 
         return apply;
+    }
+
+    @Test
+    public void test3() {
+
+        Comparator<User> comparator = Comparator.comparing((User user) -> user.getName()).thenComparing((User user) -> user.getId());
+        BinaryOperator<User> binaryOperator = BinaryOperator.maxBy(comparator);
+        System.out.println(binaryOperator.apply(new User(1, "2"), new User(2, "2")));
+
+//        BiFunction<User, User, User> biFunction = (User u1, User u2) -> u2.getName().compareTo(u1.getName()) >= 0 ? u1 : u2;
+
     }
 }
