@@ -1,11 +1,13 @@
 package com.journey.test;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
 /**
  * Created by liuqingwen on 2017/9/6.
  */
-public class User implements Serializable {
+public class User implements Serializable, Comparable<User> {
 
     private static final long serialVersionUID = -1694909307744743762L;
     private int id;
@@ -43,5 +45,11 @@ public class User implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull User o) {
+        return this.getId() == o.getId() ? 0 :
+                this.getId() > o.getId() ? 1 : -1;
     }
 }

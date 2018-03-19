@@ -1,5 +1,6 @@
 package com.journey.func;
 
+import com.google.common.collect.Maps;
 import com.journey.enums.aop.ResponseReturnType;
 import com.journey.test.User;
 import org.apache.commons.lang3.StringUtils;
@@ -30,9 +31,14 @@ public class FunctionTest {
         }})).get());
 
     }
+
     Map<Integer, String> maps ;
     {
-        maps = new HashMap<Integer, String>(12){{put(1, "2"); put(2, null); put(3, "4");}};
+        maps = new HashMap<Integer, String>(12){
+            {
+                put(1, "2"); put(2, null); put(3, "4");
+            }
+        };
     }
 
     @Test
@@ -51,14 +57,22 @@ public class FunctionTest {
         System.out.println(biFunction.andThen((user) -> user.setName("liu")).apply(1, "2"));
 
         // 组合
-        List<User> batch = batch(maps);
+        List<User> batch = batch(Maps.newHashMap(maps));
         System.out.println(batch);
 
         // 自定义 Predicate
-        System.out.println(batch(maps, user -> StringUtils.isBlank(user.getName())));
+        System.out.println(batch(Maps.newHashMap(maps), user -> StringUtils.isNotBlank(user.getName())));
+
+//        System.out.println(batch(maps, user -> StringUtils.isNotBlank(user.getName()),
+//                Comparator.<User>naturalOrder().thenComparing(user -> user.getName()).reversed()));
+        // 自定义 Predicate comparator
+        System.out.println(batch(Maps.newHashMap(maps), user -> StringUtils.isBlank(user.getName()),
+                Comparator.comparing((User user) -> user.getId()).thenComparing(Comparator.comparing(user -> user.getName()))));
+
     }
 
     private List<User> batch(Map<Integer, String> maps) {
+
         BiFunction<Set<Integer>, Map<Integer, String>, List<User>> biFunction =
                 (ids, maps1) -> ids.stream().map(id -> new User(id, maps1.getOrDefault(id, "-1"))).collect(toList());
         return biFunction.andThen((users) -> {
@@ -74,5 +88,21 @@ public class FunctionTest {
             users.removeIf(user -> predicate.test(user));
             return users;
         }).apply(maps.keySet(), maps);
+    }
+
+    private List<User> batch(Map<Integer, String> maps, final Predicate<User> predicate, Comparator<User> comparator) {
+
+        BiFunction<Set<Integer>, Map<Integer, String>, List<User>> biFunction =
+                (ids, maps1) -> ids.stream().map(id -> new User(id, maps1.getOrDefault(id, "-1"))).collect(toList());
+
+        List<User> apply = biFunction.andThen((users) -> {
+            users.removeIf(user -> predicate.test(user));
+            return users;
+        }).apply(maps.keySet(), maps);
+
+        // 排序
+        apply.sort(comparator);
+
+        return apply;
     }
 }
