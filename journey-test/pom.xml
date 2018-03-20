@@ -255,6 +255,25 @@
                   </includes>
               </configuration>
           </plugin>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <version>3.0.0</version>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <addClasspath>true</addClasspath>
+                      </manifest>
+                  </archive>
+                  <webResources>
+                      <resource>
+                          <directory>src/main/front/build</directory>
+                      </resource>
+                  </webResources>
+              </configuration>
+          </plugin>
+
       </plugins>
   </build>
 </project>
