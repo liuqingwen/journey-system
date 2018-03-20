@@ -268,7 +268,7 @@
                   </archive>
                   <webResources>
                       <resource>
-                          <directory>src/main/front/build</directory>
+                          <directory>src/main/</directory>
                       </resource>
                   </webResources>
               </configuration>
