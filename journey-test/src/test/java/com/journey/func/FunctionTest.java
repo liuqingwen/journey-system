@@ -114,4 +114,14 @@ public class FunctionTest {
 //        BiFunction<User, User, User> biFunction = (User u1, User u2) -> u2.getName().compareTo(u1.getName()) >= 0 ? u1 : u2;
 
     }
+
+    // Supplier
+    @Test
+    public void test4() {
+
+        User o = Optional.<User>empty().orElse(new User(1, "2"));
+        User o1 = Optional.<User>empty().orElseGet(() -> new User(1, "2"));
+        System.out.println(o);
+        System.out.println(o1);
+    }
 }
