@@ -104,10 +104,16 @@ public class LocalDateTimeTest {
     @Test
     public void test5() {
 
+        LocalDateTime.of(LocalDate.now(), LocalTime.now());
+
         System.out.println(nowDate.format(DateTimeFormatter.ISO_DATE));
         System.out.println(nowDate.format(DateTimeFormatter.ofPattern("yyyy年MM月dd", Locale.CHINA)));
         System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
         System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH小时mm分ss秒")));
+
+        System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+
+
 
     }
 
