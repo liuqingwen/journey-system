@@ -10,6 +10,7 @@ import org.junit.Test;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -28,7 +29,6 @@ public class FunctionTest {
         R applay(A a, B b, C c, D d);
 
     }
-
 
     public static void tes(Runnable runnable) {
 
@@ -253,6 +253,21 @@ public class FunctionTest {
         System.out.println(collect);
         Long collect1 = Stream.generate(() -> new Random().nextInt()).limit(20).collect(counting());
         System.out.println(collect1);
+
+    }
+
+    @Test
+    public void test07() {
+
+        BinaryOperator<String> binaryOperator = (x, y) -> x + y;
+        BinaryOperator<String> binaryOperator2 = String::concat;
+        BinaryOperator<String> binaryOperator3 = (x, y) -> x.concat(y);
+    }
+
+    @Test
+    public void test08() {
+
+        Map<String, List<String>> collect = Stream.of("1", "2", "3").collect(Collectors.groupingBy(v -> v));
 
     }
 
