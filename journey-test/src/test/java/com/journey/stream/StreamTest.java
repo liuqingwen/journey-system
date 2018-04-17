@@ -23,11 +23,11 @@ public class StreamTest {
     @Test
     public void test() {
 
-//        Integer reduce = Lists.<Integer>newArrayList(1, 2, 3).stream()
-//                .reduce(new NumCounter1(0), NumCounter1::returnV, NumCounter1::add2);
-//        System.out.println(reduce);
-//        Integer reduce1 = Lists.newArrayList(1, 2, 3).stream().reduce(Integer.valueOf(0), Integer::sum);
-//        System.out.println(reduce1);
+        NumCounter1 reduce = Lists.<Integer>newArrayList(1, 2, 3).stream()
+                .reduce(new NumCounter1(0), NumCounter1::returnV, NumCounter1::add2);
+        System.out.println(reduce);
+        Integer reduce1 = Lists.newArrayList(1, 2, 3).stream().reduce(Integer.valueOf(0), Integer::sum);
+        System.out.println(reduce1);
 
 //        Lists.newArrayList().forEach( {
 //
