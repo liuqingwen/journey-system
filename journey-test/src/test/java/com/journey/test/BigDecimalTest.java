@@ -41,4 +41,12 @@ public class BigDecimalTest {
         System.out.println(payPriceDouble);
     }
 
+    @Test
+    public void test2() {
+
+        System.out.println(BigDecimal.ONE.compareTo(BigDecimal.ZERO));
+        System.out.println(BigDecimal.ZERO.compareTo(BigDecimal.TEN));
+
+    }
+
 }
