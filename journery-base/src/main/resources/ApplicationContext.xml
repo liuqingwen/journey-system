@@ -2,6 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/spring-beans-4.3.xsd">
 
+    <bean id="myField"
+          class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+        <property name="staticField" value="java.sql.Connection.TRANSACTION_SERIALIZABLE"/>
+    </bean>
 
+    <bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
+          class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"/>
 
 </beans>
