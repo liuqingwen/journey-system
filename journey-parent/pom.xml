@@ -10,6 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <properties>
         <open.junit.version>4.12</open.junit.version>
         <open.spring.version>4.3.10.RELEASE</open.spring.version>
+        <open.spring.data.version>2.0.4.RELEASE</open.spring.data.version>
         <open.mybatis.version>3.4.5</open.mybatis.version>
         <open.mybatis.spring.version>1.3.1</open.mybatis.spring.version>
         <open.redis.jedis.version>2.9.0</open.redis.jedis.version>
@@ -43,6 +44,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${open.spring.version}</version>
+            </dependency>
+
+            <!-- Spring Framework Data -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version></version>
             </dependency>
 
             <!-- Mybatis -->

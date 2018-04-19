@@ -32,6 +32,10 @@
             <artifactId>spring-test</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
