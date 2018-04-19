@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/spring-beans-4.3.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="myField"
-          class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
-        <property name="staticField" value="java.sql.Connection.TRANSACTION_SERIALIZABLE"/>
-    </bean>
+    <util:properties id="redisProps" location="classpath:Redis.properties"/>
 
-    <bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
-          class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"/>
+
 
 </beans>
