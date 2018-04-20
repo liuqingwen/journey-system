@@ -19,3 +19,6 @@ journey-test/journey-test.iml
 journery-base/journey-base.iml
 journery-base/target/
 journey-test/target/surefire-reports/
+java-lambda/lambda-test.iml
+java-lambda/src/test/
+journey-provider/target/
