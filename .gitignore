@@ -16,3 +16,6 @@ journey-test/target/classes/applicationContext-dubbo.xml
 journey-test/target/journey-core/
 journey-test/target/maven-status/
 journey-test/journey-test.iml
+journery-base/journey-base.iml
+journery-base/target/
+journey-test/target/surefire-reports/
