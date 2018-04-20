@@ -63,7 +63,6 @@ public class FunctionTest {
 
 
 
-
         List<String> list = new ArrayList<String>(){{ add("1"); }};
 
 
@@ -268,6 +267,23 @@ public class FunctionTest {
     public void test08() {
 
         Map<String, List<String>> collect = Stream.of("1", "2", "3").collect(Collectors.groupingBy(v -> v));
+
+    }
+
+    @Test
+    public void test09() {
+
+        Map<Integer, List<User>> collect1 = Lists.newArrayList(new User(12580, "1"), new User(12581, "2")).stream()
+                .collect(groupingBy(User::getId));
+        System.out.println(collect1);
+
+        Map<Integer, Map<Integer, List<User>>> collect2 = Lists.newArrayList(new User(12580, "1"), new User(12581, "2")).stream()
+                .collect(groupingBy(User::getId, groupingBy(User::getId)));
+        System.out.println(collect2);
+
+        Map<Integer, Long> collect = Lists.newArrayList(new User(12580, "1"), new User(12581, "2")).stream()
+                .collect(groupingBy(User::getId, counting()));
+        System.out.println(collect);
 
     }
 
