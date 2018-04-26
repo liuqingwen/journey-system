@@ -7,8 +7,13 @@ import io.lettuce.core.api.sync.RedisCommands;
 import org.junit.Test;
 
 import java.time.Duration;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.*;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author liuqingwen
@@ -129,4 +134,129 @@ public class LettuceTest {
         System.out.println(future.isDone());
     }
 
+
+    @Test
+    public void test7() {
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        Future<Double> future = executorService.submit(new Callable<Double>() {
+            @Override
+            public Double call() throws Exception {
+                return 0.0;
+            }
+        });
+
+        // 做其他更重要的事情
+        // doSomething()
+
+        try {
+            Double result = future.get(10, TimeUnit.SECONDS);
+            System.out.println(result);
+
+            // 再做组合操作
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+
+class Shop {
+
+    private String productName;
+
+    public Shop(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public static void delay() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public double getPrice(String productName) {
+        return calculatePrice(productName);
+    }
+
+    public Future<Double> getPriceAsync(final String productName) {
+
+        CompletableFuture<Double> priceCompletableFuture = new CompletableFuture<>();
+        new Thread(() -> {
+            try {
+                double price = calculatePrice(productName);
+                priceCompletableFuture.complete(price);
+            } catch (Exception e) {
+                priceCompletableFuture.completeExceptionally(e);
+            }
+        }).start();
+
+        return priceCompletableFuture;
+    }
+
+    private double calculatePrice(String productName) {
+        delay();
+        return new Random(LocalDateTime.now().getNano()).nextDouble() * productName.charAt(0);
+    }
+
+    @Test
+    public void test() {
+
+        ArrayList<Shop> shops = new ArrayList<Shop>() {{
+            add(new Shop("Java"));
+            add(new Shop("C ++"));
+        }};
+
+        List<String> collect1 = shops.stream().parallel()
+                .map(shop -> String.format("%s price is %.2f", shop.getProductName(), shop.getPrice(shop.getProductName())))
+                .collect(toList());
+
+        List<CompletableFuture<String>> collect = shops.stream()
+                .map(shop -> CompletableFuture.supplyAsync(() -> String.format("%s price is %.2f", shop.getProductName(), shop.getPrice(shop.getProductName()))))
+                .collect(toList());
+
+        List<String> collect2 = collect.stream().map(CompletableFuture::join).collect(toList());
+
+    }
+
+    @Test
+    public void test2() {
+
+        ArrayList<Shop> shops = new ArrayList<Shop>() {{
+            add(new Shop("Java"));
+            add(new Shop("C ++"));
+        }};
+
+        // N = Ncpu * Ucpu * (1 + W/C)
+        // Ncpu cpu数量
+        // Ucpu 期望cpu利用率
+        // W/C 等待时间与计算时间比率
+
+        Executor executor = Executors.newFixedThreadPool(100, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread();
+                thread.setDaemon(true);
+                return thread;
+            }
+        });
+
+
+
+    }
 }

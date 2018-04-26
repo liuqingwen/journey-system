@@ -14,7 +14,7 @@ import static java.util.stream.Collectors.toList;
  * @author liuqingwen
  * @date 2018/3/20.
  */
-public class StreamTest {
+public class wStreamTest {
 
     // https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/
     // https://www.ibm.com/developerworks/cn/java/j-java-streams-1-brian-goetz/index.html?ca=drs-
