@@ -31,4 +31,12 @@ public class JSONTest {
 
     }
 
+    @Test
+    public void test2() {
+
+        String s = "{\"openid\":\"oiFRe0wUn6smdi18kUjTdWc3qt4Y\",\"nickname\":\"刘庆文\",\"sex\":1,\"language\":\"zh_CN\",\"city\":\"Chaoyang\",\"province\":\"Beijing\",\"country\":\"CN\",\"headimgurl\":\"http:\\/\\/wx.qlogo.cn\\/mmopen\\/vi_32\\/DYAIOgq83eo8aRo2keDReuwiaCSPCPAWtxUOrWMDQcMx4X1jrstflsviawNlWxCnBkibybTjHWTG0fNloVgm9C3Rw\\/0\",\"privilege\":[],\"unionid\":\"oa7aI0tQ1z8q9th9R1FOFzRklhOo\"}";
+        System.out.println(JSON.parseObject(s).getString("sdfa"));
+
+    }
+
 }
