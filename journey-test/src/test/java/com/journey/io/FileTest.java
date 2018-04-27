@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.*;
 import java.util.List;
+import java.util.Random;
 
 import static java.util.stream.Collectors.toList;
 
@@ -39,10 +40,12 @@ public class FileTest {
     @Test
     public void test2() {
 
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(zipFileName))))){
 
-            List<String> collect = bufferedReader.lines().collect(toList());
-            System.out.println(collect);
+        File file = new File("/data/web/ImGroupMsg/75172378/201804/64.zip");
+        System.out.println(file.getAbsolutePath());
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))){
+
+            bufferedReader.lines().forEach(System.out::println);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -52,4 +55,28 @@ public class FileTest {
 
     }
 
+    @Test
+    public void test3() {
+
+        System.out.println(new File(zipFileName).exists());
+        System.out.println(new File(zipFileName).renameTo(new File("/data/web/user1.zip")));
+        System.out.println(new File(zipFileName).exists());
+        System.out.println(new File("/data/web/user1.zip").exists());
+        System.out.println(new File("/data/web/user1.zip").renameTo(new File(zipFileName)));
+        System.out.println(new File(zipFileName).exists());
+
+
+    }
+
+}
+
+class A {
+    private static A a = new A();
+    private A() {
+
+    }
+
+    private static A get() {
+        return a;
+    }
 }

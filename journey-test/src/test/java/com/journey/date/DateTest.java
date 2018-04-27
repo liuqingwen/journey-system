@@ -3,10 +3,7 @@ package com.journey.date;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Month;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Calendar;
@@ -114,6 +111,18 @@ public class DateTest {
         Instant instant = Instant.now();
         System.out.println(instant.toEpochMilli());
         System.out.println(instant.getNano());
+
+    }
+
+    @Test
+    public void test8() {
+
+        Long aLong = 1524790636L;
+        LocalDateTime localDateTime1 = LocalDateTime.ofInstant(Instant.ofEpochSecond(aLong), ZoneId.systemDefault());
+        LocalDateTime localDateTime = LocalDateTime.ofEpochSecond(aLong, 0, ZoneOffset.ofHours(8));
+        System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
+        System.out.println(localDateTime1.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
+
 
     }
 }
