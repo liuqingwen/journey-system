@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -163,6 +164,15 @@ public class LettuceTest {
         }
     }
 
+    @Test
+    public void test8() {
+
+        List<CompletableFuture<Integer>> collect = Arrays.asList(1, 2, 3, 4, 5, 6).stream().map(index -> CompletableFuture.supplyAsync(() -> index * index)).collect(toList());
+        long count = collect.stream().map(CompletableFuture::join).count();
+        System.out.println(count);
+
+    }
+
 }
 
 
@@ -255,8 +265,6 @@ class Shop {
                 return thread;
             }
         });
-
-
 
     }
 }
