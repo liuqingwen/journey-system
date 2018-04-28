@@ -3,6 +3,7 @@ package com.journey.io;
 import org.junit.Test;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
@@ -17,7 +18,7 @@ public class FileTest {
 
     String[] arrs = new String[]{"我", "叫", "胡", "汗", "三"};
     String zipFilePath = "/data/web/";
-    String fileName = "/data/web/test/user.txt";
+    String fileName = "/data/web/user.txt";
     String zipFileName = "/data/web/user.zip";
 
 
@@ -29,7 +30,7 @@ public class FileTest {
             path.mkdirs();
         }
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(fileName), true)))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(fileName), true), Charset.forName("UTF-8")))) {
             for (String arr : arrs) {
                 bufferedWriter.write(arr);
                 bufferedWriter.newLine();
@@ -75,13 +76,13 @@ public class FileTest {
     public void test4() {
 
         try {
-            ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFileName, true));
+            ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFileName, true), Charset.forName("UTF-8"));
             File pathFile = new File(zipFilePath);
             Arrays.stream(pathFile.listFiles((dir, name) -> name.endsWith(".txt"))).forEach(file -> {
                 try {
                     ZipEntry zipEntry = new ZipEntry(file.getAbsolutePath());
                     zipOutputStream.putNextEntry(zipEntry);
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8")));
                     String oneLine;
                     while ((oneLine = bufferedReader.readLine()) != null) {
                         zipOutputStream.write(oneLine.getBytes());
@@ -104,7 +105,7 @@ public class FileTest {
 
         try {
             ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFileName, true));
-            ZipEntry zipEntry = new ZipEntry("/data/web/test/");
+            ZipEntry zipEntry = new ZipEntry("test");
             zipOutputStream.putNextEntry(zipEntry);
             zipOutputStream.closeEntry();
         } catch (FileNotFoundException e) {
