@@ -167,7 +167,16 @@ public class LettuceTest {
     @Test
     public void test8() {
 
-        List<CompletableFuture<Integer>> collect = Arrays.asList(1, 2, 3, 4, 5, 6).stream().map(index -> CompletableFuture.supplyAsync(() -> index * index)).collect(toList());
+        Executor executor = Executors.newFixedThreadPool(100, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                thread.setDaemon(true);
+                return thread;
+            }
+        });
+
+        List<CompletableFuture<Integer>> collect = Arrays.asList(1, 2, 3, 4, 5, 6).stream().map(index -> CompletableFuture.supplyAsync(() -> index * index, executor)).collect(toList());
         long count = collect.stream().map(CompletableFuture::join).count();
         System.out.println(count);
 
