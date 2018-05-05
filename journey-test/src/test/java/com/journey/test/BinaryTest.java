@@ -76,5 +76,13 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test5() {
+
+        System.out.println(2 & 6);
+        System.out.println(2 & 6 & 6);
+
+    }
+
 
 }
