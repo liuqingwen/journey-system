@@ -84,5 +84,16 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test6() {
+
+        System.out.println(Integer.toBinaryString(((int) Math.pow(2, 0)) - 1));
+        System.out.println(Integer.toBinaryString(((int) Math.pow(2, 1)) - 1));
+        System.out.println(Integer.toBinaryString(((int) Math.pow(2, 2)) - 1));
+        System.out.println(Integer.toBinaryString(((int) Math.pow(2, 3)) - 1));
+        System.out.println(Integer.toBinaryString(((int) Math.pow(2, 4)) - 1));
+
+    }
+
 
 }
