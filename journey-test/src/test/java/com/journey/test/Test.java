@@ -8,6 +8,7 @@ import com.google.common.collect.Sets;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 import com.journey.entity.WeiXinUser;
+import com.journey.enums.aop.EAopLogTypes;
 import com.journey.enums.aop.ResponseReturnType;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static com.journey.enums.aop.EAopLogTypes.AOP_LOG;
@@ -508,5 +510,73 @@ public class Test {
     private int set(int i) {
         System.out.println(i);
         return i;
+    }
+
+    @org.junit.Test
+    public void test37() {
+
+        EAopLogTypes aop_log = EAopLogTypes.valueOf("");
+        System.out.println(aop_log.getDescription());
+
+    }
+
+    @org.junit.Test
+    public void test38() {
+
+        String s = "123:456";
+        System.out.println(s.substring(0, s.indexOf(":")));
+        System.out.println(s.substring(s.indexOf(":")+1, s.length()));
+
+    }
+
+    @org.junit.Test
+    public void test39() {
+
+        String combinations = "1:3,4,5;2:6,7,8;";
+        List<String> collect = Arrays.stream(combinations.split(";")).collect(Collectors.toList());
+        Map<String, Integer> collect1 = collect.stream().flatMap(value -> {
+            String substring = value.substring(0, value.indexOf(":"));
+            String substring2 = value.substring(value.indexOf(":") + 1, value.length());
+            return Arrays.stream(substring2.split(",")).map(value2 -> new StringBuilder(substring).append("-").append(value2).toString());
+        }).collect(Collectors.toMap(String::toString, value -> 1));
+
+        System.out.println(collect1);
+
+    }
+
+    @org.junit.Test
+    public void test40() {
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("s", 1);
+        map.put("r", 2);
+        System.out.println(map.size());
+        System.out.println(map.keySet().size());
+
+    }
+
+    @org.junit.Test
+    public void test41() {
+
+        String s = "1:2";
+        String s2 = "2:3";
+        System.out.println(s.substring(2));
+        System.out.println(s.charAt(0));
+        System.out.println(s2.charAt(0));
+        System.out.println(s.charAt(0) + 1 == s2.charAt(0));
+
+    }
+
+    @org.junit.Test
+    public void test42() {
+
+        Integer[] ints = new Integer[10];
+        ints[2] = 1;
+        ints[4] = 4;
+        System.out.println(ints.length);
+        for (Integer it : ints) {
+            System.out.println(it);
+        }
+
     }
 }

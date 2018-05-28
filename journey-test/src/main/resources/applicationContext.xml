@@ -7,6 +7,8 @@
 
     <bean id="journeyRedis" class="com.journey.redis.JourneyRedis"/>
 
+    <bean id="jvmTest" class="com.journey.jvm.JvmTest" init-method="test"/>
+
     <import resource="classpath:applicationContext-aop.xml"/> <!-- jedis aop 日志 -->
 
     <import resource="applicationContext-job.xml"/><!-- job -->
