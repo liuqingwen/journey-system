@@ -22,3 +22,4 @@ journey-test/target/surefire-reports/
 java-lambda/lambda-test.iml
 java-lambda/src/test/
 journey-provider/target/
+/journey-test/Test/nbproject/private/
