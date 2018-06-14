@@ -23,3 +23,5 @@ java-lambda/lambda-test.iml
 java-lambda/src/test/
 journey-provider/target/
 /journey-test/Test/nbproject/private/
+journey-mybatis.iml
+target/
