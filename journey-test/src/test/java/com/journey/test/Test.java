@@ -13,6 +13,9 @@ import com.journey.enums.aop.ResponseReturnType;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
@@ -602,6 +605,37 @@ public class Test {
 
         System.out.println(Integer.toBinaryString(20));
         System.out.println(Integer.toBinaryString(15));
+
+    }
+
+    @org.junit.Test
+    public void test45() {
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+//        long i = localDateTime.getLong(ChronoField.INSTANT_SECONDS);
+//        Date date = new Date(i);
+//        System.out.println(date);
+        System.out.println(localDateTime);
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(localDateTime.getYear(), localDateTime.getMonthValue() - 1, localDateTime.getDayOfMonth(), localDateTime.getHour(), localDateTime.getMinute(), localDateTime.getSecond());
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()));
+
+
+    }
+
+    @org.junit.Test
+    public void test46() {
+
+        System.out.println(1 << 4);
+        System.out.println(1 << 6);
+
+    }
+
+    @org.junit.Test
+    public void test47() {
+
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        IntStream.range(0, 10).forEach(v -> System.out.println(atomicInteger.getAndIncrement()));
 
     }
 }
