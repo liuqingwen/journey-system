@@ -1,6 +1,7 @@
 package com.journey.job;
 
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.annotation.Schedules;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -51,6 +52,11 @@ public class Job {
     @Scheduled(cron = "0 * * * * ?")
     public void doExe7() {
         System.out.println("7... " + format(Calendar.getInstance().getTime()));
+    }
+
+    @Schedules(value = {@Scheduled(cron = "0/6 * * * * ?"), @Scheduled(cron = "0 0/1 * * * ?")})
+    public void doExe8() {
+        System.out.println("8... " + format(Calendar.getInstance().getTime()));
     }
 
     private static String format(Date date) {
