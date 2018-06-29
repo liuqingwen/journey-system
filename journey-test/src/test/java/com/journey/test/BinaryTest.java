@@ -95,5 +95,34 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test7() {
+
+        int initialCapacity = 8;
+        initialCapacity |= (initialCapacity >>> 1);
+        initialCapacity |= (initialCapacity >>> 2);
+        initialCapacity |= (initialCapacity >>> 4);
+        initialCapacity |= (initialCapacity >>> 8);
+        initialCapacity |= (initialCapacity >>> 16);
+        initialCapacity++;
+        System.out.println(initialCapacity);
+
+    }
+
+    @Test
+    public void test8() {
+
+        System.out.println(1 << 16);
+
+    }
+
+    @Test
+    public void test9() {
+
+        System.out.println((1L << 62));
+        System.out.println(Long.MAX_VALUE >> 1);
+
+    }
+
 
 }

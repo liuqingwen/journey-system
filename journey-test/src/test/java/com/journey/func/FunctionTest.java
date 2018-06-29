@@ -287,4 +287,13 @@ public class FunctionTest {
 
     }
 
+    @Test
+    public void test10() {
+
+        ArrayList<String> strings = Lists.newArrayList("1", "2", "3", "4", "4");
+        Map<String, String> collect = strings.stream().collect(toMap(String::toString, v -> v + "|", (k1, k2) -> k1 + "_" + k2));
+        System.out.println(collect);
+
+    }
+
 }
