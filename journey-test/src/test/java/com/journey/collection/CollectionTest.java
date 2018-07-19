@@ -56,4 +56,13 @@ public class CollectionTest {
 
     }
 
+    @Test
+    public void test4() {
+
+        ArrayList<Double> doubles = Lists.newArrayList(0.01, 0.45, 0.98, 0.12, 0.56);
+        doubles.sort(Comparator.comparingDouble((Double d) -> d).reversed());
+        System.out.println(doubles);
+
+    }
+
 }

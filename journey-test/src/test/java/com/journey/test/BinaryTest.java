@@ -124,5 +124,13 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test10() {
+
+        System.out.println(1 << 16);
+        System.out.println((1 << 16) / 1024);
+        System.out.println(1 << 8);
+
+    }
 
 }
