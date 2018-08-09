@@ -1,4 +1,4 @@
-package com.journey.io;
+package com.journey.concurrent;
 
 import org.junit.Test;
 
