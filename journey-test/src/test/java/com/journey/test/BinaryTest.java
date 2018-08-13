@@ -133,4 +133,14 @@ public class BinaryTest {
 
     }
 
+    @Test
+    public void test11() {
+
+        //
+        System.out.println(Integer.toBinaryString(1 << 8));
+        System.out.println(Integer.toBinaryString(-1));
+        System.out.println((byte)(1 << 7));
+        System.out.println(Integer.toBinaryString(1 << 7));
+    }
+
 }
