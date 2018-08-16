@@ -22,15 +22,41 @@ public class ZookeeperTest {
 
     protected ZookeeperFactory zookeeperFactory = new DefaultZookeeperFactory();
     protected ZooKeeper zooKeeper = null;
-    {
-        try {
-            zooKeeper = zookeeperFactory.newZooKeeper("127.0.0.1:2181", 1 * 1000, (WatchedEvent event) -> System.out.println("1 -> " + event), false);
-        } catch (Exception e) {}
+    private boolean onoff = false;
+
+    static {
+        System.out.println("我是静态代码块");
     }
+
+    {
+        System.out.println("我是代码块");
+        if (onoff) {
+            try {
+                zooKeeper = zookeeperFactory.newZooKeeper("127.0.0.1:2181", 1 * 1000, (WatchedEvent event) -> System.out.println("1 -> " + event), false);
+            } catch (Exception e) {}
+        }
+    }
+
+    public ZookeeperTest(boolean onoff) {
+        System.out.println("我是构造方法");
+        this.onoff = onoff;
+    }
+
+    public static void main(String[] args) {
+
+        ZookeeperTest zookeeperTest = new ZookeeperTest(true);
+        zookeeperTest.test();
+
+    }
+
+
+
     @Test
     public void test() {
 
         try {
+            System.out.println("我是方法");
+            onoff = true;
             System.out.println(zooKeeper.getChildren("/", (WatchedEvent event) -> System.out.println("2 -> " + event)));
             Object lock = new Object();
             synchronized (lock) {

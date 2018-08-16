@@ -10,6 +10,7 @@ import com.google.common.hash.Hashing;
 import com.journey.entity.WeiXinUser;
 import com.journey.enums.aop.EAopLogTypes;
 import com.journey.enums.aop.ResponseReturnType;
+import com.journey.zk.ZookeeperTest;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.io.File;
@@ -38,12 +39,8 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
 
-        String userId = "112408574";
-        String asyncFraudApiInvokerWhiteUser = "112408574,112408574";
-        System.out.println(Arrays.toString(asyncFraudApiInvokerWhiteUser.split(",")));
-        System.out.println(Arrays.asList(asyncFraudApiInvokerWhiteUser.split(",")));
-        boolean contains = Arrays.asList(asyncFraudApiInvokerWhiteUser.split(",")).contains(userId);
-        System.out.println(contains);
+        ZookeeperTest zookeeperTest = new ZookeeperTest(true);
+        zookeeperTest.test();
     }
 
     /**
@@ -638,6 +635,7 @@ public class Test {
         IntStream.range(0, 10).forEach(v -> System.out.println(atomicInteger.getAndIncrement()));
 
     }
+
 
 
 }
