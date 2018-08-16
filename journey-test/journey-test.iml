@@ -95,6 +95,7 @@
     <orderEntry type="library" name="Maven: org.apache.curator:curator-recipes:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-framework:4.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-client:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.101tec:zkclient:0.10" level="project" />
     <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.checkerframework:checker:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.checkerframework:compiler:2.3.2" level="project" />

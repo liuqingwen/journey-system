@@ -1,5 +1,9 @@
 package com.journey.zk;
 
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.api.CuratorWatcher;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.utils.DefaultZookeeperFactory;
 import org.apache.curator.utils.ZookeeperFactory;
 import org.apache.zookeeper.KeeperException;
@@ -81,6 +85,22 @@ public class ZookeeperTest {
         } catch (KeeperException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void test4() {
+
+        CuratorFramework curatorFramework = CuratorFrameworkFactory.newClient("127.0.0.1:2182", new ExponentialBackoffRetry(1000, 2));
+        curatorFramework.start();
+        try {
+            Stat stat = new Stat();
+            byte[] bytes = curatorFramework.getData().storingStatIn(stat).usingWatcher((CuratorWatcher)(event) -> System.out.println(event)).forPath("/lnode");
+            System.out.println(new String(bytes));
+            System.out.println(stat);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
