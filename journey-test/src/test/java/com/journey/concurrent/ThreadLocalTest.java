@@ -24,7 +24,7 @@ public class ThreadLocalTest {
     @Test
     public void test2() {
 
-        ThreadLocal<String> threadLocal = new ThreadLocal<String>(){
+        ThreadLocal<String> threadLocal = new ThreadLocal<String>() {
             @Override
             protected String initialValue() {
                 return "liu";
@@ -36,5 +36,6 @@ public class ThreadLocalTest {
         }).start();
 
     }
+
 
 }

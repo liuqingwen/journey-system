@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * @author liuqingwen
@@ -141,6 +142,36 @@ public class BinaryTest {
         System.out.println(Integer.toBinaryString(-1));
         System.out.println((byte)(1 << 7));
         System.out.println(Integer.toBinaryString(1 << 7));
+    }
+
+
+    private static final int COUNT_BITS = Integer.SIZE - 3;
+    private static final int RUNNING    = -1 << COUNT_BITS;
+    private static final int SHUTDOWN   =  0 << COUNT_BITS;
+    private static final int STOP       =  1 << COUNT_BITS;
+    private static final int TIDYING    =  2 << COUNT_BITS;
+    private static final int TERMINATED =  3 << COUNT_BITS;
+
+    @Test
+    public void test12() {
+
+        System.out.println(repair0(Integer.toBinaryString(RUNNING), 32) + "-- RUNNING");
+        System.out.println(repair0(Integer.toBinaryString(SHUTDOWN), 32) + "-- SHUTDOWN");
+        System.out.println(repair0(Integer.toBinaryString(STOP), 32) + "-- STOP");
+        System.out.println(repair0(Integer.toBinaryString(TIDYING), 32) + "-- TIDYING");
+        System.out.println(repair0(Integer.toBinaryString(TERMINATED), 32) + "-- TERMINATED");
+
+    }
+
+    private String repair0(String ending, int unit) {
+
+        StringBuilder sb = new StringBuilder(1 << 6);
+        int repairLen = unit - ending.length();
+        for (int index = 0; index < repairLen; index++) {
+            sb.append("0");
+        }
+
+        return sb.append(ending).toString();
     }
 
 }

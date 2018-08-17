@@ -32,17 +32,6 @@ import static com.journey.enums.aop.EAopLogTypes.AOP_LOG;
  */
 public class Test {
 
-    {
-        System.out.println(1);
-        System.out.println("我是测试");
-    }
-
-    public static void main(String[] args) throws Exception {
-
-        ZookeeperTest zookeeperTest = new ZookeeperTest(true);
-        zookeeperTest.test();
-    }
-
     /**
      * 检查手机
      *
