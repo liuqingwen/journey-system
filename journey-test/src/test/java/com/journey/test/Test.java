@@ -625,6 +625,14 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void test48() {
 
+        String s = "liu";
+        System.out.println("liu".intern() == s);
+        String s2 = new String("liu");
+        System.out.println(s == s2);
+        System.out.println("liu".intern() == s2);
 
+    }
 }

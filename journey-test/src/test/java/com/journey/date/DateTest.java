@@ -31,10 +31,13 @@ public class DateTest {
 //        System.out.println("1505702827808".length());
 
 
+        DateTest test = new DateTest();
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1471522276000L);
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime()));
 
+        test.test();
     }
 
 
