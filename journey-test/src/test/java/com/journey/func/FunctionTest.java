@@ -296,4 +296,14 @@ public class FunctionTest {
 
     }
 
+    @Test
+    public void test11() {
+
+        List<String> strings = Lists.newArrayList("1", "2", "3");
+        System.out.println(strings.removeIf((s -> s.equals("2"))));
+        System.out.println(strings.removeIf((s -> s.equals("4"))));
+        System.out.println(strings);
+
+    }
+
 }
