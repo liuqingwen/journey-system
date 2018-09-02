@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 
 /**
@@ -57,6 +58,15 @@ public class ReflectTest {
             System.out.println("end");
             return null;
         }
+    }
+
+    @Test
+    public void test2() {
+
+        System.out.println(Modifier.PUBLIC);
+        System.out.println(Modifier.FINAL);
+        System.out.println(Modifier.STATIC);
+
     }
 
 }

@@ -170,11 +170,11 @@
           <version>2.3.2</version>
       </dependency>
 
-      <dependency>
-          <groupId>org.checkerframework</groupId>
-          <artifactId>checker</artifactId>
-          <version>2.3.2</version>
-      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.checkerframework</groupId>-->
+          <!--<artifactId>checker</artifactId>-->
+          <!--<version>2.3.2</version>-->
+      <!--</dependency>-->
 
       <dependency>
           <groupId>org.checkerframework</groupId>
@@ -205,6 +205,12 @@
           <groupId>com.netflix.hystrix</groupId>
           <artifactId>hystrix-core</artifactId>
           <version>1.5.12</version>
+      </dependency>
+
+      <dependency>
+          <groupId>cglib</groupId>
+          <artifactId>cglib</artifactId>
+          <version>3.2.7</version>
       </dependency>
 
   </dependencies>

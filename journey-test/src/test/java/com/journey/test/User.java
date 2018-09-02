@@ -1,7 +1,5 @@
 package com.journey.test;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 
 /**
@@ -48,7 +46,7 @@ public class User implements Serializable, Comparable<User> {
     }
 
     @Override
-    public int compareTo(@NotNull User o) {
+    public int compareTo(User o) {
         return this.getId() == o.getId() ? 0 :
                 this.getId() > o.getId() ? 1 : -1;
     }
