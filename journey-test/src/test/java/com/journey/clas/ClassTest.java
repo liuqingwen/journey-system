@@ -1,5 +1,6 @@
 package com.journey.clas;
 
+import com.journey.test.User;
 import org.junit.Test;
 
 /**
@@ -12,6 +13,16 @@ public class ClassTest {
     @Test
     public void test() {
         new B();
+    }
+
+    @Test
+    public void test2() {
+
+        Class<Object> objectClass = Object.class;
+        Class<String> stringClass = String.class;
+//        System.out.println(objectClass == User.class);
+        System.out.println(stringClass);
+
     }
 
 }
@@ -45,3 +56,4 @@ class B extends A {
         System.out.println("B-我是构造方法");
     }
 }
+
