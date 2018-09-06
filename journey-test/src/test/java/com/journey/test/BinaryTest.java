@@ -174,4 +174,10 @@ public class BinaryTest {
         return sb.append(ending).toString();
     }
 
+    @Test
+    public void test13() {
+
+        System.out.println(Double.valueOf(Math.pow(2, 32)));
+
+    }
 }
