@@ -1,7 +1,8 @@
 package com.journey.clas;
 
-import com.journey.test.User;
 import org.junit.Test;
+
+import java.lang.reflect.Constructor;
 
 /**
  * @author liuqingwen
@@ -23,6 +24,18 @@ public class ClassTest {
 //        System.out.println(objectClass == User.class);
         System.out.println(stringClass);
 
+    }
+
+    @Test
+    public void test3() {
+
+        try {
+            Class<?>[] types = new Class<?>[]{Integer.class, String.class};
+            Constructor<AA> declaredConstructor = AA.class.getDeclaredConstructor(types);
+            System.out.print(declaredConstructor);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
 }
@@ -56,4 +69,5 @@ class B extends A {
         System.out.println("B-我是构造方法");
     }
 }
+
 
