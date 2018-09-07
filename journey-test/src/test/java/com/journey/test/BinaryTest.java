@@ -180,4 +180,29 @@ public class BinaryTest {
         System.out.println(Double.valueOf(Math.pow(2, 32)));
 
     }
+
+    @Test
+    public void test14() {
+
+        int var = 1;
+        var ^= 2;
+        var ^= 4;
+        var ^= 4;
+        var ^= 1;
+        System.out.println(var);
+
+        System.out.println(1 << 5);
+        System.out.println(Integer.toBinaryString(1 << 5));
+    }
+
+    // LockSupport nextSecondarySeed Test
+    @Test
+    public void test15() {
+        int r = 1;
+        r ^= r << 13;   // xorshift
+        r ^= r >>> 17;
+        r ^= r << 5;
+        System.out.println(r);
+        System.out.println(Integer.toBinaryString(r));
+    }
 }
