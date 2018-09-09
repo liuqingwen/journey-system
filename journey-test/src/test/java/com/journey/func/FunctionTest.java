@@ -1,5 +1,6 @@
 package com.journey.func;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.journey.enums.aop.ResponseReturnType;
@@ -304,6 +305,20 @@ public class FunctionTest {
         System.out.println(strings.removeIf((s -> s.equals("4"))));
         System.out.println(strings);
 
+    }
+
+    @Test
+    public void test12() {
+
+        List<String> strings = Lists.newArrayList("q", "2", "s");
+        for (int index = 0; index < 5; index++) {
+            new ArrayList<>(strings).stream().parallel().forEach((s) -> System.out.print(s));
+            System.out.println();
+        }
+
+
+        List<Map<String, Object>> map = JSON.parseObject("[{\"couponId\": 102699,“info“:“免邮券”}]", List.class);
+        System.out.println(map);
     }
 
 }
