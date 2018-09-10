@@ -23,7 +23,7 @@ public class DynamicProxyTest {
 
         // 10000
 
-        Map<String, IClassOperate> map = new HashMap<String, IClassOperate>();
+        Map<String, IClassOperate> map = new HashMap<>();
         map.put("native", classOperate);
         map.put("cgProxy", classOperate2);
         map.put("jdkProxy", iClassOperate);
