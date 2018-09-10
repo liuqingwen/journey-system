@@ -141,6 +141,13 @@ public class FileTest {
 
     }
 
+    @Test
+    public void test7() {
+
+        System.out.println(File.separatorChar);
+
+    }
+
 }
 
 class A {

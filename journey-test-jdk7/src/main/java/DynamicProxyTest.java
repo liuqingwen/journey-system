@@ -37,6 +37,9 @@ public class DynamicProxyTest {
 
         executeCount2 = 5_000_000;
         compareExecute(repeatCount, executeCount2, map);
+
+        executeCount2 = 50_000_000;
+        compareExecute(repeatCount, executeCount2, map);
     }
 
     // 预热执行
