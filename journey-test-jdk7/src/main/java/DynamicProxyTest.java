@@ -29,13 +29,13 @@ public class DynamicProxyTest {
         map.put("jdkProxy", iClassOperate);
 
         int repeatCount = 3;
-        int executeCount2 = 100000;
+        int executeCount2 = 100_000;
         compareExecute(repeatCount, executeCount2, map);
 
-        executeCount2 = 500000;
+        executeCount2 = 500_000;
         compareExecute(repeatCount, executeCount2, map);
 
-        executeCount2 = 5000000;
+        executeCount2 = 5_000_000;
         compareExecute(repeatCount, executeCount2, map);
     }
 
