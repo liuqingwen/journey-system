@@ -15,7 +15,7 @@ public class DynamicProxyTest {
         IClassOperate iClassOperate = new DynamicProxyByInvocationHandler(classOperate).<IClassOperate>newProxyInstance();
 
         // pre hot
-        int executeCount = 10000;
+        int executeCount = 10_000;
         System.out.println("pre dynamic test params == executeCount:" + executeCount + ", java-version:" + System.getProperty("java.version"));
         preHotExecute(classOperate, executeCount);
         preHotExecute(classOperate2, executeCount);
