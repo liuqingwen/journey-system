@@ -2,6 +2,7 @@ package com.journey.date;
 
 import org.junit.Test;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -126,6 +127,26 @@ public class DateTest {
         System.out.println(localDateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
         System.out.println(localDateTime1.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")));
 
+
+    }
+
+    @Test
+    public void test9() {
+
+        System.out.println(Long.MAX_VALUE);
+        System.out.println();
+
+        Instant instant = Instant.now();
+        System.out.println(instant.toEpochMilli());
+        System.out.println(System.currentTimeMillis());
+
+        System.out.println();
+        System.out.println(System.nanoTime());
+        System.out.println(instant.toEpochMilli() * 1_000_000);
+        System.out.println(instant.getNano());
+
+        System.out.println();
+        System.out.println(String.valueOf(instant.toEpochMilli()).length());
 
     }
 }
