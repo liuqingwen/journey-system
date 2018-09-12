@@ -8,6 +8,9 @@ import com.journey.test.User;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.function.*;
@@ -319,6 +322,23 @@ public class FunctionTest {
 
         List<Map<String, Object>> map = JSON.parseObject("[{\"couponId\": 102699,“info“:“免邮券”}]", List.class);
         System.out.println(map);
+    }
+
+    @Test
+    public void test13() {
+
+        ArrayList<BigDecimal> bigDecimals = Lists.newArrayList(BigDecimal.valueOf(10000.1), BigDecimal.valueOf(0.2222333), BigDecimal.valueOf(0.33), BigDecimal.valueOf(3));
+//        BigDecimal reduce = bigDecimals.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+//        System.out.println(reduce.doubleValue());
+//        System.out.println();
+        BigDecimal zero = BigDecimal.ZERO;
+        BigDecimal bigDecimal = zero.setScale(1, BigDecimal.ROUND_HALF_UP);
+        BigDecimal reduce2 = bigDecimals.stream().reduce(bigDecimal, BigDecimal::add, BigDecimal::add);
+//        BigDecimal reduce3 = reduce2.setScale(1, BigDecimal.ROUND_HALF_UP);
+        System.out.println(reduce2.doubleValue());
+
+//        BigDecimal round = reduce2.round(new MathContext(2, RoundingMode.HALF_UP));
+//        System.out.println(round);
     }
 
 }

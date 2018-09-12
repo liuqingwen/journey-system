@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Comparator;
 
 /**
@@ -16,6 +17,7 @@ public class BigDecimalTest {
     public void test() {
 
         BigDecimal bigDecimal = new BigDecimal(10.12, MathContext.UNLIMITED);
+        bigDecimal.setScale(1, RoundingMode.HALF_UP);
         System.out.println(bigDecimal.doubleValue());
         System.out.println(bigDecimal.intValue());
         System.out.println(bigDecimal.doubleValue() > bigDecimal.intValue());
