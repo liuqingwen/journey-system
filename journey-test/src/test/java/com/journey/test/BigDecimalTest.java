@@ -1,10 +1,12 @@
 package com.journey.test;
 
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.Comparator;
 
 /**
@@ -48,6 +50,29 @@ public class BigDecimalTest {
 
         System.out.println(BigDecimal.ONE.compareTo(BigDecimal.ZERO));
         System.out.println(BigDecimal.ZERO.compareTo(BigDecimal.TEN));
+
+    }
+
+    @Test
+    public void test3() {
+
+        BigDecimal bigDecimal = null, bigDecimal2 = null, bigDecimal3 = null;
+
+        ArrayList<BigDecimal> bigDecimals = Lists.newArrayList(BigDecimal.valueOf(30), BigDecimal.valueOf(30), BigDecimal.valueOf(40));
+        int size = bigDecimals.size();
+
+        BigDecimal reduce = bigDecimals.stream().reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal divide = reduce.divide(BigDecimal.valueOf(size), 2, RoundingMode.HALF_DOWN);
+        if (divide.multiply(BigDecimal.valueOf(size)).compareTo(reduce) == 0) {
+            bigDecimal = divide;
+        } else {
+            bigDecimal2 = divide;
+            bigDecimal3 = reduce.subtract(divide.multiply(BigDecimal.valueOf(size - 1)));
+        }
+
+        System.out.println(bigDecimal);
+        System.out.println(bigDecimal2);
+        System.out.println(bigDecimal3);
 
     }
 
