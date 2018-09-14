@@ -149,4 +149,34 @@ public class DateTest {
         System.out.println(String.valueOf(instant.toEpochMilli()).length());
 
     }
+
+    @Test
+    public void test10() {
+
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.add(Calendar.HOUR_OF_DAY, 2);
+        Date date2 = calendar2.getTime();
+        System.out.println("date2 : " + date2);
+
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        System.out.println("date : " + date);
+
+        System.out.println(date.compareTo(date2));
+    }
+
+    @Test
+    public void test11() {
+
+        Date date = new Date();
+        System.out.println(date);
+
+        Calendar instance = Calendar.getInstance();
+        instance.add(Calendar.HOUR_OF_DAY, 2);
+        System.out.println(instance.getTime());
+
+        instance.setTime(date);
+        System.out.println(instance.getTime());
+
+    }
 }
