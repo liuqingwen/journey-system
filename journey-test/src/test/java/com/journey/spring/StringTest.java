@@ -34,4 +34,34 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test3() {
+
+        String str = "liuqingwen";
+        System.out.println(reverse(str));
+
+    }
+
+    private String reverse(String arg) {
+
+        char[] chars = arg.toCharArray();
+        int length = chars.length;
+        if (length < 2) {
+            return arg;
+        }
+
+        char t;
+        for (int index = 0; index < length; index++) {
+            if (index > (length - 1 - index)) {
+                break;
+            }
+            t = chars[index];
+            chars[index] = chars[length - 1 - index];
+            chars[length - 1 - index] = t;
+
+        }
+
+        return new String(chars);
+    }
+
 }

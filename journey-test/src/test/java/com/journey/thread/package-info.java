@@ -1,5 +1,8 @@
 package com.journey.thread;
 
+// 内核态 和 用户态 切换
+//https://cn.bing.com/search?q=Java+%E7%94%A8%E6%88%B7%E6%80%81+%E7%B3%BB%E7%BB%9F%E6%80%81+%E5%88%87%E6%8D%A2%E6%9D%A1%E4%BB%B6&qs=n&form=QBLH&sp=-1&pq=java+%E7%94%A8%E6%88%B7%E6%80%81+%E7%B3%BB%E7%BB%9F%E6%80%81+%E5%88%87%E6%8D%A2%E6%9D%A1%E4%BB%B6&sc=0-17&sk=&cvid=01C7D058227C4FF9B7AB5F9AD3C4290A
+
 // linux 线程模型
 
 // 进程 线程(KLT-内核线程) 轻量级进程(LWP) 用户线程(UT)
