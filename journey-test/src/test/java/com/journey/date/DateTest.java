@@ -179,4 +179,13 @@ public class DateTest {
         System.out.println(instance.getTime());
 
     }
+
+    @Test
+    public void test12() {
+
+        Date date = new Date();
+        System.out.println(date.getTime()/1000);
+        System.out.println((int) (date.getTime()/1000));
+        System.out.println(Integer.MAX_VALUE);
+    }
 }
