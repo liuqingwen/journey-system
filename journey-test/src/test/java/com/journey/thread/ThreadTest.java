@@ -1,5 +1,13 @@
 package com.journey.thread;
 
+import org.junit.Test;
+import sun.misc.Unsafe;
+import sun.tools.jconsole.Worker;
+
+import java.lang.reflect.Field;
+import java.util.Random;
+import java.util.concurrent.*;
+
 /**
  * @author liuqingwen
  * @date 2018/9/19.
@@ -35,4 +43,41 @@ public class ThreadTest {
     // 3. 如果采用多进程的方法，有如下问题：
     // 1) fork 一个子进程的消耗是很大的，fork 是一个昂贵的系统调用，即使使用现代的写时复制(Copy on Write)技术。
     // 2）各个进程之前有自己的独立的地址空间，进程间的协作需要复杂的 IPC 技术，如消息传递和内存共享等。
+
+    @Test
+    public void test() {
+
+        Random random = new Random(System.currentTimeMillis());
+
+        ThreadPoolExecutor executorService = new ThreadPoolExecutorExtend(10, 10, 10, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(1_000_000), Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+        ThreadPoolMonitor threadPoolMonitor = new ThreadPoolMonitor(executorService, 1000, TimeUnit.MILLISECONDS);
+        new Thread(threadPoolMonitor).start();
+
+        int executeCount = 100_000;
+
+        CountDownLatch countDownLatch = new CountDownLatch(executeCount);
+
+        for (int index = 0; index < executeCount; index++) {
+            executorService.execute(() -> {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(random.nextInt(100));
+                    countDownLatch.countDown();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        try {
+            countDownLatch.await();
+//            TimeUnit.SECONDS.sleep(60);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(ThreadPoolMonitor.toString(executorService));
+        threadPoolMonitor.printWorkers();
+
+        System.out.println("运行结束");
+    }
 }

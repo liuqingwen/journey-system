@@ -635,4 +635,13 @@ public class Test {
         System.out.println("liu".intern() == s2);
 
     }
+
+    @org.junit.Test
+    public void test49() {
+
+        System.out.println(Double.MAX_VALUE);
+        System.out.println((double) Long.MAX_VALUE);
+        System.out.println(Long.MAX_VALUE);
+
+    }
 }

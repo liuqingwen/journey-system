@@ -112,5 +112,14 @@
     <orderEntry type="library" name="Maven: org.apache.ant:ant:1.10.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.10.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:3.0-alpha-1" level="project" />
+    <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:5.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.29.Final" level="project" />
   </component>
 </module>

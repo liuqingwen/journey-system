@@ -1,10 +1,12 @@
 package com.journey.test;
 
+import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -204,5 +206,64 @@ public class BinaryTest {
         r ^= r << 5;
         System.out.println(r);
         System.out.println(Integer.toBinaryString(r));
+    }
+
+    @Test
+    public void test16() {
+
+        System.out.println((59 & 0x1f) << 1);
+        System.out.println(59 & 0x1f);
+
+    }
+
+    @Test
+    public void test17() {
+
+        System.out.println(-4 >> 31);
+        System.out.println(abs(-2));
+    }
+
+    int abs( int x )
+    {
+        int y ;
+        y = x >> 31 ;
+        return (x^y)-y ;        //or: (x+y)^y
+    }
+
+    @Test
+    public void test18() {
+
+        int num = 7;
+        int count = 0;
+        for (;(num >>= 1) > 0;) {
+            ++count;
+        }
+        System.out.println(count);
+
+    }
+
+    @Test
+    public void test19() {
+
+        String num = "12";
+        String num2 = "23";
+        byte[] ints = new byte[num.length()];
+        for (int index = 0; index < num.length(); index++) {
+            ints[index] = Byte.valueOf(String.valueOf(num.charAt(num.length() - index - 1)));
+        }
+        byte[] ints2 = new byte[num2.length()];
+        for (int index = 0; index < num2.length(); index++) {
+            ints2[index] = Byte.valueOf(String.valueOf(num2.charAt(num2.length() - index - 1)));
+        }
+
+        System.out.println(Arrays.toString(ints));
+        System.out.println(Arrays.toString(ints2));
+
+        BigInteger bigInteger = new BigInteger(ints);
+        BigInteger bigInteger2 = new BigInteger(ints2);
+        System.out.println(bigInteger.add(bigInteger2));
+
+
+
     }
 }
