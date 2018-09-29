@@ -644,4 +644,15 @@ public class Test {
         System.out.println(Long.MAX_VALUE);
 
     }
+
+    @org.junit.Test
+    public void test50() {
+
+        String s = "12";
+        String s2 = "7";
+
+        System.out.println(Float.valueOf(s) / Integer.valueOf(s2));
+        System.out.println(String.valueOf(Integer.valueOf(s) * 1000 / Integer.valueOf(s2)));
+
+    }
 }
