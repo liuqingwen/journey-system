@@ -11,6 +11,13 @@ public class User implements Serializable, Comparable<User> {
     private int id;
     private String name;
 
+    static {
+        System.out.println("User Class init");
+    }
+
+    public User() {
+    }
+
     public User(int id, String name) {
         this.id = id;
         this.name = name;
