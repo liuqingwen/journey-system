@@ -1,4 +1,4 @@
-package com.journey.demo.data.mapper;
+package com.journey.demo.service;
 
 import com.journey.demo.data.entity.LoginUserInfo;
 
@@ -6,7 +6,7 @@ import com.journey.demo.data.entity.LoginUserInfo;
  * @author liuqingwen
  * @date 2018/10/9.
  */
-public interface LoginUserMapper {
+public interface IUserLoginService {
 
     LoginUserInfo getLoginUserInfo(String account);
 

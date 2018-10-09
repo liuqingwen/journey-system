@@ -12,9 +12,9 @@
         <package name="com.journey.demo.data"/>
     </mappers>
 
-    <typeAliases>
-        <typeAlias type="com.journey.demo.data.entity.LoginUserInfo" alias="loginUserInfo"/>
-    </typeAliases>
+    <!--<typeAliases>-->
+        <!--<typeAlias type="com.journey.demo.data.entity.LoginUserInfo" alias="loginUserInfo"/>-->
+    <!--</typeAliases>-->
 
     <!--<plugins>-->
         <!--<plugin interceptor=""></plugin>-->
