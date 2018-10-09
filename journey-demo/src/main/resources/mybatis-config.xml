@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- SIMPLE REUSE BATCH -->
+        <setting name="defaultExecutorType" value="REUSE"/>
+        <setting name="defaultStatementTimeout" value="60000"/>
+    </settings>
+
+    <mappers>
+        <package name="com.journey.demo.data"/>
+    </mappers>
+
+    <typeAliases>
+        <typeAlias type="com.journey.demo.data.entity.LoginUserInfo" alias="loginUserInfo"/>
+    </typeAliases>
+
+    <!--<plugins>-->
+        <!--<plugin interceptor=""></plugin>-->
+    <!--</plugins>-->
+    
+</configuration>
