@@ -64,4 +64,13 @@ public class StringTest {
         return new String(chars);
     }
 
+    @Test
+    public void test4() {
+
+        String s = "qq.txt";
+        int index = -1;
+        System.out.println((index = s.indexOf(".")) > -1 ? s.substring(0, index) : s);
+
+    }
+
 }
