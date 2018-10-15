@@ -2,6 +2,7 @@ package com.journey.pattern;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 import static java.util.stream.Collectors.toList;
@@ -19,6 +20,15 @@ public class PatternTest {
         System.out.println(pattern.splitAsStream("liu qing wen is best good").collect(toList()));
 
         System.out.println("\\");
+
+    }
+
+    @Test
+    public void test2() {
+
+        Pattern pattern = Pattern.compile("[,，]+");
+        String[] split = pattern.split("1,，2,,,，3,,4,5");
+        System.out.println(Arrays.toString(split));
 
     }
 
