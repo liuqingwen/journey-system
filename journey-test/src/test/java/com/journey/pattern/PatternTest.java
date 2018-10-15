@@ -32,4 +32,12 @@ public class PatternTest {
 
     }
 
+    @Test
+    public void test3() {
+
+        Pattern pattern = Pattern.compile("\\w+");
+        System.out.println(pattern.matcher("ab$c12dk").matches());
+
+    }
+
 }

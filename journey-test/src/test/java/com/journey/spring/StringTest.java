@@ -73,4 +73,16 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test5() {
+
+        StringBuilder stringBuilder = new StringBuilder(1 << 5);
+        stringBuilder.append("1").append(",").append("2").append(",").append("3").append(",").append("4").append(",")
+                .append("5").append(",").append("6").append(",");
+        System.out.println(stringBuilder.lastIndexOf(","));
+        System.out.println(stringBuilder.length());
+        System.out.println(stringBuilder.substring(0, stringBuilder.length() - 1));
+
+    }
+
 }
