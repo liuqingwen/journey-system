@@ -18,6 +18,8 @@ public class PatternTest {
         Pattern pattern = Pattern.compile("\\s+");
         System.out.println(pattern.splitAsStream("liu qing wen is best good").collect(toList()));
 
+        System.out.println("\\");
+
     }
 
 }
