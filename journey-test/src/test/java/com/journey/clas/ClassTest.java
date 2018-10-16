@@ -127,4 +127,11 @@ public class ClassTest {
 
     }
 
+    @Test
+    public void test7() {
+
+        System.out.println(ClassTest.class.getName());
+
+    }
+
 }

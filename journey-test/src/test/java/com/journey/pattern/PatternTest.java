@@ -26,8 +26,8 @@ public class PatternTest {
     @Test
     public void test2() {
 
-        Pattern pattern = Pattern.compile("[,，]+");
-        String[] split = pattern.split("1,，2,,,，3,,4,5");
+        Pattern pattern = Pattern.compile("[,，\\s]+");
+        String[] split = pattern.split("1, ，2,,  ,，3,,   4,5");
         System.out.println(Arrays.toString(split));
 
     }
