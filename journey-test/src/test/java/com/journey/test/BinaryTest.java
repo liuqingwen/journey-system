@@ -3,11 +3,12 @@ package com.journey.test;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DecimalFormat;
-import java.util.*;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author liuqingwen
@@ -266,4 +267,15 @@ public class BinaryTest {
 
 
     }
+
+    @Test
+    public void test20() throws Exception {
+
+        String s = new String("1");
+        System.out.println(s.getBytes("utf-8").length);
+
+        System.out.println(Lists.newArrayList(1, 2, 3, 4, 5, 6).stream().map(v -> String.valueOf(v)).collect(Collectors.joining(",")));
+
+    }
+
 }
