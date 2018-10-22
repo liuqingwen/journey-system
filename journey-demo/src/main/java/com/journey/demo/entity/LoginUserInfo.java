@@ -1,4 +1,4 @@
-package com.journey.demo.data.entity;
+package com.journey.demo.entity;
 
 /**
  * @author liuqingwen

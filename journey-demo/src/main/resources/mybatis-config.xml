@@ -13,7 +13,7 @@
     </mappers>
 
     <!--<typeAliases>-->
-        <!--<typeAlias type="com.journey.demo.data.entity.LoginUserInfo" alias="loginUserInfo"/>-->
+        <!--<typeAlias type="com.journey.demo.entity.LoginUserInfo" alias="loginUserInfo"/>-->
     <!--</typeAliases>-->
 
     <!--<plugins>-->

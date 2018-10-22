@@ -1,6 +1,6 @@
 package com.journey.demo.service;
 
-import com.journey.demo.data.entity.LoginUserInfo;
+import com.journey.demo.entity.LoginUserInfo;
 
 /**
  * @author liuqingwen

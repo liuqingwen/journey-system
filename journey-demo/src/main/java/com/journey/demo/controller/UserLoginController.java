@@ -23,7 +23,8 @@ public class UserLoginController {
     @ResponseBody
     @RequestMapping(value = "login.htm")
     public Object login(@RequestParam("acc") String account) {
-        return userLoginService.getLoginUserInfo(account);
+
+        return userService.getUserName(account);
     }
 
 }
