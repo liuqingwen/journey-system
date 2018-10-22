@@ -6,9 +6,11 @@ import com.journey.demo.service.UserService;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 
+@EnableHystrix
 @SpringBootApplication
 @Import({DataSourceConfig.class, MapperScannerConfig.class})
 public class SpringBootDubboDemoApplication {
