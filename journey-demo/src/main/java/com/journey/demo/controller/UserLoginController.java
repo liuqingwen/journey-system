@@ -1,6 +1,8 @@
 package com.journey.demo.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.journey.demo.service.IUserLoginService;
+import com.journey.demo.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserLoginController {
 
     @Autowired private IUserLoginService userLoginService;
+    @Reference(version = "1.0", group = "direct") private IUserService userService;
 
     @ResponseBody
     @RequestMapping(value = "login.htm")
