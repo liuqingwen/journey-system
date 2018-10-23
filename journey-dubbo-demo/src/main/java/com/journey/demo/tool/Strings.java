@@ -31,4 +31,16 @@ public class Strings {
         //        return Arrays.stream(args).filter(arg -> arg != null).map(Object::toString).collect(Collectors.joining(separator));
     }
 
+    public static final String trim(String arg) {
+
+        if (arg == null) {
+            return arg;
+        }
+
+        return arg.trim();
+    }
+
+    public static final boolean isNullOrEmpty(String arg) {
+        return arg == null || "".equals(trim(arg));
+    }
 }

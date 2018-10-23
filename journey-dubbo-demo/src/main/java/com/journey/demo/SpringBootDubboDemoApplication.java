@@ -1,6 +1,7 @@
 package com.journey.demo;
 
 import com.journey.demo.data.config.DataSourceConfig;
+import com.journey.demo.data.config.DataSourceRoutingConfig;
 import com.journey.demo.data.config.MapperScannerConfig;
 import com.journey.demo.service.UserService;
 import org.springframework.boot.WebApplicationType;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.Import;
 
 @EnableHystrix
 @SpringBootApplication
-@Import({DataSourceConfig.class, MapperScannerConfig.class})
+@Import({DataSourceConfig.class, MapperScannerConfig.class, DataSourceRoutingConfig.class})
 public class SpringBootDubboDemoApplication {
 
     public static void main(String[] args) {

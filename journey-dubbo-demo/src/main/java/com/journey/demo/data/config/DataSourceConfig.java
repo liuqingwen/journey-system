@@ -1,11 +1,9 @@
 package com.journey.demo.data.config;
 
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import com.journey.demo.data.source.lookup.RoutingDataSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.sql.DataSource;
 
@@ -15,18 +13,14 @@ import javax.sql.DataSource;
  */
 public class DataSourceConfig {
 
-    @Bean
-    public SqlSessionFactoryBean getSqlSessionFactoryBean(@Autowired DataSource dataSource) {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource);
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
-        return sqlSessionFactoryBean;
+    @Bean(value = "main-master", initMethod = "init")
+    public DruidDataSource dataSourceMasterMain() {
+        return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean("sqlSessionTemplate")
-    public SqlSessionTemplate getSqlSessionTemplate(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) throws Exception {
-        return new SqlSessionTemplate(sqlSessionFactoryBean.getObject());
+    @Bean(value = "dataSource")
+    public DataSource getDataSource() {
+        return new RoutingDataSource();
     }
 
 }
