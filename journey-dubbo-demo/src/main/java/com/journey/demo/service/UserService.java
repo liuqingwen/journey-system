@@ -9,6 +9,9 @@ import com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +26,7 @@ public class UserService implements IUserService {
     private final static Logger LOGGER = LoggerFactory.getLogger(UserService.class);
     @Autowired private UserLoginMapper userLoginMapper;
 
+    @Transactional(transactionManager = "platformTransactionManager", isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
     @HystrixCommand(commandProperties = {
             @HystrixProperty(name = HystrixPropertiesManager.CIRCUIT_BREAKER_REQUEST_VOLUME_THRESHOLD, value = "10"),
             @HystrixProperty(name = HystrixPropertiesManager.EXECUTION_ISOLATION_THREAD_TIMEOUT_IN_MILLISECONDS, value = "200")

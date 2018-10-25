@@ -50,13 +50,9 @@ public abstract class BaseMethodNameAutoDataSourceRouting implements MethodBefor
 
     @Override
     public void before(Method method, Object[] objects, Object o) throws Throwable {
-
-        String lookupKey = determineCurrentDataSourceLookupKey(this.sourceRulesMap, method);
-        if (lookupKey != null) determineCurrentMSeDataSource(lookupKey, method);
+        setCurrentDataSource(this.sourceRulesMap, method);
     }
 
-    protected abstract String determineCurrentDataSourceLookupKey(Map<String, List<Pattern>> sourceRulesMap, Method method);
-
-    protected abstract void determineCurrentMSeDataSource(String lookupKey, Method method);
+    protected abstract void setCurrentDataSource(Map<String, List<Pattern>> sourceRulesMap, Method method);
 
 }

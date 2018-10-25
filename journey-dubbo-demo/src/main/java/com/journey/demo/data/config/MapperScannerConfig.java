@@ -20,19 +20,22 @@ public class MapperScannerConfig {
     private ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
     @Bean
-    public SqlSessionFactoryBean getSqlSessionFactoryBean(@Autowired @Qualifier("dataSource") DataSource dataSource) {
+    public SqlSessionFactoryBean sqlSessionFactoryBean(@Autowired @Qualifier("dataSource") DataSource dataSource) {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setConfigLocation(resolver.getResource("classpath:mybatis-config.xml"));
         return sqlSessionFactoryBean;
     }
 
-    @Bean("sqlSessionTemplate")
-    public SqlSessionTemplate getSqlSessionTemplate(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) throws Exception {
+    @Bean
+//    @ConditionalOnMissingBean
+    public SqlSessionTemplate sqlSessionTemplate(@Autowired SqlSessionFactoryBean sqlSessionFactoryBean) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactoryBean.getObject());
     }
 
     @Bean
+//    @ConditionalOnMissingBean
+//    @ConditionalOnBean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionTemplateBeanName("sqlSessionTemplate");

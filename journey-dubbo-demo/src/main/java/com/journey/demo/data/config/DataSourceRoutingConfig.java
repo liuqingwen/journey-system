@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class DataSourceRoutingConfig {
 
     @Bean
-    public BaseMethodNameAutoDataSourceRouting getBaseMethodNameAutoDataSourceChanger() {
+    public BaseMethodNameAutoDataSourceRouting methodNameAutoDataSourceRouting() {
         return new DefaultMethodNameAutoDataSourceRouting();
     }
 

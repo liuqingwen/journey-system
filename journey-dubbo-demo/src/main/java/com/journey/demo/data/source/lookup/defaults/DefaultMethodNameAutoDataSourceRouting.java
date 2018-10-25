@@ -51,21 +51,22 @@ public class DefaultMethodNameAutoDataSourceRouting extends BaseMethodNameAutoDa
     }
 
     @Override
-    protected String determineCurrentDataSourceLookupKey(Map<String, List<Pattern>> sourceRulesMap, Method method) {
+    protected void setCurrentDataSource(Map<String, List<Pattern>> sourceRulesMap, Method method) {
 
         String classNameVerifyStr = Strings.joint("", method.getDeclaringClass().getName(), method.getName()).toString();
         for (Map.Entry<String, List<Pattern>> entry : sourceRulesMap.entrySet()) {
             for (Pattern pattern : entry.getValue()) {
                 if (pattern.matcher(classNameVerifyStr).matches()) {
-                    return entry.getKey();
+                    dealCurrentMSeDataSource(entry.getKey(), method);
+                    return ;
                 }
             }
         }
 
-        return null;
+        return ;
     }
 
-    protected void determineCurrentMSeDataSource(String lookupKey, Method method) {
+    protected void dealCurrentMSeDataSource(String lookupKey, Method method) {
 
         if (masterMethodRegex == null || slaveMethodRegex == null) {
             RoutingDataSourceHolder.setMasterDataSourceLookupKey(lookupKey);

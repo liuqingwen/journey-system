@@ -18,8 +18,8 @@ public class DataSourceConfig {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean(value = "dataSource")
-    public DataSource getDataSource() {
+    @Bean
+    public DataSource dataSource() {
         return new RoutingDataSource();
     }
 
