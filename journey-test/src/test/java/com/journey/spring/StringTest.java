@@ -85,4 +85,11 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test6() {
+
+        System.out.println("http://www.jiuxian.com/jalsdkfjalsd".replace("http://www.", "").indexOf("jiuxian.com"));
+
+    }
+
 }
