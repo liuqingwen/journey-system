@@ -3,7 +3,10 @@ package com.journey.spring;
 import org.junit.Test;
 import org.springframework.util.StringUtils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 /**
  * @author liuqingwen
@@ -89,6 +92,50 @@ public class StringTest {
     public void test6() {
 
         System.out.println("http://www.jiuxian.com/jalsdkfjalsd".replace("http://www.", "").indexOf("jiuxian.com"));
+
+    }
+
+    @Test
+    public void test7() {
+
+        String fromUrl = "https://test70login.jiuxian.com/login.htm?from=http://test70member.jiuxian.com/trademanage/my_order-9.htm";
+        int index1 = 0, index2 = 0;
+        Pattern compile = Pattern.compile("((http://)|(https://))?\\w+\\.\\w+\\.com.*");
+        Pattern compile2 = Pattern.compile("((http://)|(https://))?\\w+\\.com.*");
+        if (compile.matcher(fromUrl).matches()) {
+            index1 = fromUrl.indexOf(".");
+            index2 = fromUrl.indexOf("com");
+        }
+        if (compile2.matcher(fromUrl).matches()) {
+            index1 = -1;
+            index2 = fromUrl.indexOf(".") + 1;
+        }
+
+        if (index1 != 0 && index2 > 0) {
+            String jiuxian = fromUrl.substring(index1 + 1, index2 - 1);
+            if (!jiuxian.equals("jiuxian")) {
+                fromUrl = null;
+            } else {
+                if (fromUrl.indexOf("from=") >= 0) {
+                    fromUrl = fromUrl.substring(
+                            fromUrl.indexOf("from=") + 5, fromUrl.length());
+                }
+            }
+        }
+
+        System.out.println(fromUrl);
+    }
+
+    @Test
+    public void test8() {
+
+        try {
+            URL url = new URL("https://test70login.jiuxian.com/login.htm?from=http://test70member.jiuxian.com/trademanage/my_order-9.htm");
+            System.out.println(url.getHost());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
