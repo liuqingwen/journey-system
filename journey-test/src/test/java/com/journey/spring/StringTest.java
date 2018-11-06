@@ -98,10 +98,10 @@ public class StringTest {
     @Test
     public void test7() {
 
-        String fromUrl = "https://test70login.jiuxian.com/login.htm?from=http://test70member.jiuxian.com/trademanage/my_order-9.htm";
+        String fromUrl = "from=http://test70member.jiuxian.com/trademanage/my_order-9.htm";
         int index1 = 0, index2 = 0;
-        Pattern compile = Pattern.compile("((http://)|(https://))?\\w+\\.\\w+\\.com.*");
-        Pattern compile2 = Pattern.compile("((http://)|(https://))?\\w+\\.com.*");
+        Pattern compile = Pattern.compile("(from=)?((http://)|(https://))?\\w+\\.\\w+\\.com.*");
+        Pattern compile2 = Pattern.compile("(from=)?((http://)|(https://))?\\w+\\.com.*");
         if (compile.matcher(fromUrl).matches()) {
             index1 = fromUrl.indexOf(".");
             index2 = fromUrl.indexOf("com");
