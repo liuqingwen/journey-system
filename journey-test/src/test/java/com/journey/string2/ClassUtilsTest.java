@@ -1,4 +1,4 @@
-package com.journey.spring;
+package com.journey.string2;
 
 import org.junit.Test;
 import org.springframework.util.ClassUtils;

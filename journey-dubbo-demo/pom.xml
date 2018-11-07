@@ -34,7 +34,7 @@
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-jta-atomikos</artifactId>-->
+            <!--<artifactId>string2-boot-starter-jta-atomikos</artifactId>-->
         <!--</dependency>-->
 
         <dependency>
@@ -114,15 +114,15 @@
             <!--<exclusions>-->
                 <!--<exclusion>-->
                     <!--<groupId>org.springframework.cloud</groupId>-->
-                    <!--<artifactId>spring-cloud-starter</artifactId>-->
+                    <!--<artifactId>string2-cloud-starter</artifactId>-->
                 <!--</exclusion>-->
                 <!--<exclusion>-->
                     <!--<groupId>org.springframework.cloud</groupId>-->
-                    <!--<artifactId>spring-cloud-netflix-ribbon</artifactId>-->
+                    <!--<artifactId>string2-cloud-netflix-ribbon</artifactId>-->
                 <!--</exclusion>-->
                 <!--<exclusion>-->
                     <!--<groupId>org.springframework.cloud</groupId>-->
-                    <!--<artifactId>spring-cloud-starter-netflix-archaius</artifactId>-->
+                    <!--<artifactId>string2-cloud-starter-netflix-archaius</artifactId>-->
                 <!--</exclusion>-->
             <!--</exclusions>-->
         </dependency>

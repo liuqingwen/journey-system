@@ -1,4 +1,4 @@
-package com.journey.spring;
+package com.journey.string2;
 
 import org.junit.Test;
 import org.springframework.util.StringUtils;
@@ -136,6 +136,17 @@ public class StringTest {
             e.printStackTrace();
         }
 
+
+    }
+
+    @Test
+    public void test9() {
+
+        String takePath = "/Users/liuqingwen/公司/酒仙网/workspace/root/target/ROOT/tmp/20181107/运费导入模板1541589953335.xlsx";
+        String namespace = "/exception";
+        int lastIndex = takePath.lastIndexOf("/");
+        int lastBeforeIndex = takePath.substring(0, takePath.lastIndexOf("/")).lastIndexOf("/");
+        System.out.println(Strings.joint("", takePath.substring(0, lastBeforeIndex), namespace, takePath.substring(lastBeforeIndex, lastIndex), takePath.substring(lastIndex)).toString());
 
     }
 

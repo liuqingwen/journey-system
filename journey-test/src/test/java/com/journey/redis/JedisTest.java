@@ -61,10 +61,10 @@ public class JedisTest extends JedisBase {
         logger.info("返回结果 Key集合 {} ", journeyRedis.hkeys("user"));
         logger.info("返回结果 Value集合 {} ", journeyRedis.hvals("user"));
         journeyRedis.del("java framework");
-        journeyRedis.lpush("java framework", "spring", "struts", "hibernate");
+        journeyRedis.lpush("java framework", "string2", "struts", "hibernate");
         logger.info("取出队列里面集合 {} ", journeyRedis.lrange("java framework", 0, -1));
         journeyRedis.del("java framework");
-        journeyRedis.rpush("java framework", "spring", "struts", "hibernate");
+        journeyRedis.rpush("java framework", "string2", "struts", "hibernate");
         logger.info("取出队列里面集合 {} ", journeyRedis.lrange("java framework", 0, -1));
 
     }
