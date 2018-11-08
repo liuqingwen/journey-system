@@ -4,8 +4,8 @@ import org.junit.Test;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author liuqingwen
@@ -16,13 +16,10 @@ public class GenericityTest {
     @Test
     public void test() {
 
-        List<String> list = new ArrayList<String>() {
-
-        };
-        Type genericSuperclass = list.getClass().getGenericSuperclass();
-        System.out.println(genericSuperclass instanceof ParameterizedType);
-        ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
-        Type actualTypeArgument = parameterizedType.getActualTypeArguments()[0];
-        System.out.println(actualTypeArgument);
+        Map<String, Integer> map = new HashMap<String, Integer>(){};
+        Type[] actualTypeArguments = ((ParameterizedType) map.getClass().getGenericSuperclass()).getActualTypeArguments();
+        for (Type type : actualTypeArguments) {
+            System.out.println(type);
+        }
     }
 }
