@@ -21,5 +21,6 @@ public class GenericityTest {
         for (Type type : actualTypeArguments) {
             System.out.println(type);
         }
+
     }
 }
