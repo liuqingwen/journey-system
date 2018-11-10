@@ -16,22 +16,22 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
  */
 public class MethodHandleTest {
 
-    private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final long stateOffset;
-    private static final long headOffset;
-    private static final long tailOffset;
-
-    static {
-        try {
-            stateOffset = unsafe.objectFieldOffset
-                    (AbstractQueuedSynchronizer.class.getDeclaredField("state"));
-            headOffset = unsafe.objectFieldOffset
-                    (AbstractQueuedSynchronizer.class.getDeclaredField("head"));
-            tailOffset = unsafe.objectFieldOffset
-                    (AbstractQueuedSynchronizer.class.getDeclaredField("tail"));
-
-        } catch (Exception ex) { throw new Error(ex); }
-    }
+//    private static final Unsafe unsafe = Unsafe.getUnsafe();
+//    private static final long stateOffset;
+//    private static final long headOffset;
+//    private static final long tailOffset;
+//
+//    static {
+//        try {
+//            stateOffset = unsafe.objectFieldOffset
+//                    (AbstractQueuedSynchronizer.class.getDeclaredField("state"));
+//            headOffset = unsafe.objectFieldOffset
+//                    (AbstractQueuedSynchronizer.class.getDeclaredField("head"));
+//            tailOffset = unsafe.objectFieldOffset
+//                    (AbstractQueuedSynchronizer.class.getDeclaredField("tail"));
+//
+//        } catch (Exception ex) { throw new Error(ex); }
+//    }
 
     @Test
     public void test() {
@@ -65,6 +65,7 @@ class Son extends Father {
 
         MethodType methodType = MethodType.methodType(void.class);
         try {
+//            MethodHandles.lookup()
             MethodHandle thinking = MethodHandles.lookup().findSpecial(Grandfather.class, "thinking", methodType, Grandfather.class);
             thinking.invoke(new Son());
         } catch (NoSuchMethodException | IllegalAccessException e) {
