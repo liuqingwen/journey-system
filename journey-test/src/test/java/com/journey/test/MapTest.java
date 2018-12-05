@@ -43,4 +43,16 @@ public class MapTest {
 //        0 1 0 1 << 1 ==> 1 0 1 0 ==> 8 + 2 = 10;
     }
 
+
+    @Test
+    public void test2() {
+
+        Map<String, String> map = new HashMap<String, String>(){{put("str", "1");put("str2", "2");}};
+        System.out.println(map);
+        String str = map.merge("str", "2", (v1, v2) -> null);
+        System.out.println(str);
+        System.out.println(map);
+
+
+    }
 }

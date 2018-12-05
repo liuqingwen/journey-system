@@ -150,4 +150,29 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test10() {
+        int[] ints = new int[]{1, 2};
+        for (int index = 0; index < ints.length / 2; index++) {
+            ints[index] = ints[index] ^ ints[ints.length - 1 - index];
+            ints[ints.length - 1 - index] = ints[index] ^ (ints[ints.length - 1 - index]);
+            ints[index] = ints[index] ^ (ints[ints.length - 1 - index]);
+        }
+
+        System.out.println(Arrays.toString(ints));
+        System.out.println((-5 & 5));
+
+//        0010
+//        1101
+    }
+
+    @Test
+    public void test11() {
+
+        System.out.println(Strings.joint2(Strings.STRING_BUILDER_DEFAULT_INIT_SIZE, ",", "1", "2", "3"));
+        System.out.println(Strings.joint3(Strings.STRING_BUILDER_DEFAULT_INIT_SIZE, ",", "1", "2", "3").toString());
+
+    }
+
+
 }

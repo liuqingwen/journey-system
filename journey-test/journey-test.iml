@@ -123,5 +123,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.29.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.29.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.29.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: mysql:mysql-connector-java:5.1.46" level="project" />
   </component>
 </module>

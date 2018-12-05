@@ -1,5 +1,10 @@
 package com.journey.concurrent.lock;
 
+import org.junit.Test;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @author liuqingwen
  * @date 2018/9/18.
@@ -39,4 +44,90 @@ public class LockTest {
 
 
 //    春天，忧伤以及空空荡荡；我伸出双手，丢掉了什么；又抓住些什么。 在寒冷的小屋；像圣徒一样读书；什么也不能把我拯救。 长期的寂寞使人发疯；下一个我将把谁干掉；想象中，我曾埋葬过多少赫赫帝王。 其实我多愿意是个快活的小流氓；歪戴帽子，吹着口哨；踩一辆破车子去漫游四方。 也许我该怒吼；也许我该冷笑；也许我该躺下来，好好睡一觉。
+
+    volatile int num = 0;
+
+    @Test
+    public void test() {
+
+        ReentrantLock reentrantLock = new ReentrantLock();
+        Condition condition = reentrantLock.newCondition();
+        Condition condition2 = reentrantLock.newCondition();
+
+        try {
+
+            Thread thread = new Thread(() -> {
+                while (true) {
+                    reentrantLock.lock();
+                    if (num > 8) {
+                        break;
+                    }
+                    System.out.println("thread - " + (++num));
+                    try {
+                        condition2.signal();
+                        condition.await();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } finally {
+                        reentrantLock.unlock();
+                    }
+
+                }
+            });
+
+            Thread thread2 = new Thread(() -> {
+                while (true) {
+                    reentrantLock.lock();
+                    if (num > 8) {
+                        break;
+                    }
+                    System.out.println("thread2 - " + (++num));
+                    try {
+                        condition.signal();
+                        condition2.await();
+                    } catch (InterruptedException e) {}
+                    finally {
+                        reentrantLock.unlock();
+                    }
+                }
+            });
+
+            thread.start();
+            thread2.start();
+
+
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {}
+        } finally {
+
+        }
+    }
+
+    public void pri() {
+        System.out.println(num++);
+    }
+
+    @Test
+    public void test2() {
+
+
+
+
+    }
+
+    class Run implements Runnable {
+
+        int num = 0;
+
+        @Override
+        public void run() {
+
+        }
+
+        protected synchronized void pri() {
+
+        }
+    }
+
 }

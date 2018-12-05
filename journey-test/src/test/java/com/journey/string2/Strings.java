@@ -31,6 +31,18 @@ public class Strings {
         //        return Arrays.stream(args).filter(arg -> arg != null).map(Object::toString).collect(Collectors.joining(separator));
     }
 
+    public static final String joint2(final int initSize, final String separator, Object... args) {
+        Objects.requireNonNull(args, "args 不允许为空");
+        return Arrays.stream(args).filter(arg -> arg != null).map(Object::toString).reduce(new StringBuilder(initSize < STRING_BUILDER_DEFAULT_INIT_SIZE ? STRING_BUILDER_DEFAULT_INIT_SIZE : initSize),
+                (StringBuilder starter, String arg) -> starter.append(separator).append(arg), StringBuilder::append).substring(1);
+    }
+
+    public static final StringBuilder joint3(final int initSize, final String separator, Object... args) {
+        Objects.requireNonNull(args, "args 不允许为空");
+        return Arrays.stream(args).filter(arg -> arg != null).map(Object::toString).reduce(new StringBuilder(initSize < STRING_BUILDER_DEFAULT_INIT_SIZE ? STRING_BUILDER_DEFAULT_INIT_SIZE : initSize),
+                (starter, arg) -> starter.length() == 0 ? starter.append(arg) : starter.append(separator).append(arg), StringBuilder::append);
+    }
+
     public static final boolean equals(String arg, String arg2) {
         return arg == null ? arg2 == null : arg.equals(arg2);
     }
