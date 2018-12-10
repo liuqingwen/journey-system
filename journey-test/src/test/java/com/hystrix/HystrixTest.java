@@ -1,4 +1,4 @@
-package com.journey.hystrix;
+package com.hystrix;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
