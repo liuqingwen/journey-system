@@ -6,11 +6,10 @@ import com.journey.test.User;
 import org.junit.Test;
 import sun.misc.SharedSecrets;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -134,4 +133,12 @@ public class ClassTest {
 
     }
 
+    @Test
+    public void  test8() {
+
+        Type genericSuperclass = (new ArrayList<Map<String, String>>() {}).getClass().getGenericSuperclass();
+        Type actualTypeArgument = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0];
+        System.out.println(actualTypeArgument);
+
+    }
 }
