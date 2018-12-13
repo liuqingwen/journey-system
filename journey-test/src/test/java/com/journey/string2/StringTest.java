@@ -174,5 +174,34 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test12() {
 
+        class StringAppend {
+
+            public void add() {
+                String str = "a";
+                long s = System.currentTimeMillis();
+                for (int index = 0; index < 1_000_000; index++) {
+                    str += "b";
+                }
+                System.out.println("add-" + str);
+                System.out.println(System.currentTimeMillis() - s + "-add");
+            }
+
+            public void format() {
+                String str = "";
+                long s = System.currentTimeMillis();
+                for (int index = 0; index < 1_000_000; index++) {
+                    str = String.format("a%s", "b");
+                }
+                System.out.println("format-" + str);
+                System.out.println(System.currentTimeMillis() - s + "-format");
+            }
+        }
+
+        new StringAppend().add();
+        new StringAppend().format();
+
+    }
 }

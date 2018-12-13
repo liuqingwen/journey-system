@@ -1,5 +1,6 @@
 package com.journey.test;
 
+import com.google.common.collect.Maps;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -53,6 +54,13 @@ public class MapTest {
         System.out.println(str);
         System.out.println(map);
 
+
+    }
+
+    @Test
+    public void test3() {
+
+        System.out.println(Maps.newHashMap().get("value") == null);
 
     }
 }
