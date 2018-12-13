@@ -62,5 +62,12 @@ public class MapTest {
 
         System.out.println(Maps.newHashMap().get("value") == null);
 
+
+        String s = "liu";
+
+        Object ss = Maps.newHashMap(new HashMap<String, Object>(){{put("ss", "liu2");}}).getOrDefault("ss", s);
+        System.out.println(ss);
+
+
     }
 }
