@@ -1,5 +1,7 @@
 package com.journey.test;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.google.common.collect.Maps;
 import org.junit.Test;
 
@@ -67,6 +69,8 @@ public class MapTest {
 
         Object ss = Maps.newHashMap(new HashMap<String, Object>(){{put("ss", "liu2");}}).getOrDefault("ss", s);
         System.out.println(ss);
+
+        Map<String, String> map = JSON.parseObject("1,2,3", new TypeReference<Map<String, String>>() {});
 
 
     }
