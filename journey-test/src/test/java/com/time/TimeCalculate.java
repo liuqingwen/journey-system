@@ -10,7 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class TimeCalculate {
 
-    private static Map<String, Long> timeMap = new ConcurrentHashMap<>();
+    private static int DEFAULT_MAP_SIZE = 1 << 10;
+    private static Map<String, Long> timeMap = new ConcurrentHashMap<>(DEFAULT_MAP_SIZE);
 
     public static final int MILLISECONDS = 1;
     public static final int SECONDS = 1 * 1000;
