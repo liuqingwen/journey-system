@@ -26,6 +26,7 @@
     <objectFactory type="com.journey.core.MyObjectFactory"/> <!-- 对象工厂 -->
 
     <plugins>  <!--插件-->
+        <plugin interceptor="com.journey.plugin.NullPlugin"/>
         <plugin interceptor="com.journey.plugin.SqlLogPlugin"/>
     </plugins>
     

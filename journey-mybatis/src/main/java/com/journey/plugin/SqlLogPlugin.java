@@ -2,7 +2,10 @@ package com.journey.plugin;
 
 import com.journey.core.TimeCalculate;
 import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.log4j.Logger;
 
@@ -26,10 +29,19 @@ public class SqlLogPlugin implements Interceptor {
         String mark = TimeCalculate.mark();
         try {
             Object target = invocation.getTarget();
-            if (target instanceof StatementHandler) {
-                StatementHandler statementHandler = (StatementHandler) target;
-                LOGGER.info(statementHandler.getBoundSql().getSql());
+            MetaObject statementHandlerMeta = SystemMetaObject.forObject(target);
+            while (statementHandlerMeta.hasGetter("h")) {
+                Object hTarget = statementHandlerMeta.getValue("h");
+                statementHandlerMeta = SystemMetaObject.forObject(hTarget);
             }
+
+            while (statementHandlerMeta.hasSetter("target")) {
+                Object tTarget = statementHandlerMeta.getValue("target");
+                statementHandlerMeta = SystemMetaObject.forObject(tTarget);
+            }
+
+            BoundSql boundSql = (BoundSql)statementHandlerMeta.getValue("delegate.boundSql");
+            LOGGER.info(boundSql.getSql());
 
             return invocation.proceed();
         } finally {
