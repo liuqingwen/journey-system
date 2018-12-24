@@ -1,5 +1,6 @@
 package com.journey.service;
 
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -8,15 +9,19 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public class TaskService {
 
-    @Transactional
+    @Transactional()
     public void get() {
 
         save();
         update();
 
+
+
+//        TaskService,save();
+
     }
 
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void save() {
 
     }
