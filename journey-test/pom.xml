@@ -1,0 +1,353 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.liu.journey</groupId>
+  <artifactId>journey-test</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <parent>
+      <groupId>com.liu.journey</groupId>
+      <artifactId>journey-parent</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <dependencies>
+
+      <dependency>
+          <groupId>javax</groupId>
+          <artifactId>javaee-api</artifactId>
+          <version>8.0</version>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>string2-context</artifactId>-->
+          <!--<version>4.3.8.RELEASE</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-jdbc</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.mybatis</groupId>
+          <artifactId>mybatis-spring</artifactId>
+          <version>1.3.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context-support</artifactId>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.springframework</groupId>-->
+          <!--<artifactId>string2-web</artifactId>-->
+          <!--<version>4.3.8.RELEASE</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-aspects</artifactId>
+          <version>4.3.8.RELEASE</version>
+      </dependency>
+
+      <dependency>
+          <groupId>aopalliance</groupId>
+          <artifactId>aopalliance</artifactId>
+          <version>1.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-redis</artifactId>
+          <version>2.0.4.RELEASE</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.springframework</groupId>
+                  <artifactId>spring-context</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-lang3</artifactId>
+          <version>3.4</version>
+      </dependency>
+
+      <dependency>
+          <groupId>redis.clients</groupId>
+          <artifactId>jedis</artifactId>
+          <version>2.9.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>22.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>fastjson</artifactId>
+          <version>1.2.29</version>
+      </dependency>
+
+      <dependency>
+          <groupId>joda-time</groupId>
+          <artifactId>joda-time</artifactId>
+          <version>2.9.4</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.squareup.okhttp3</groupId>
+          <artifactId>okhttp</artifactId>
+          <version>3.9.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.1.7</version>
+      </dependency>
+
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-access</artifactId>
+          <version>1.1.7</version>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>com.alibaba</groupId>-->
+          <!--<artifactId>dubbo-jx</artifactId>-->
+          <!--<version>1.1.0-RELEASE</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.apache.zookeeper</groupId>
+          <artifactId>zookeeper</artifactId>
+          <version>3.5.3-beta</version>
+      </dependency>
+
+      <!-- pdf 转 图片 -->
+      <dependency>
+          <groupId>org.apache.pdfbox</groupId>
+          <artifactId>fontbox</artifactId>
+          <version>2.0.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.pdfbox</groupId>
+          <artifactId>pdfbox</artifactId>
+          <version>2.0.1</version>
+      </dependency>
+      <dependency>
+          <groupId>com.lowagie</groupId>
+          <artifactId>itext</artifactId>
+          <version>2.1.7</version>
+      </dependency>
+      <!-- pdf 转 图片 -->
+
+      <dependency>
+          <groupId>org.apache.curator</groupId>
+          <artifactId>curator-recipes</artifactId>
+          <version>4.0.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.101tec</groupId>
+          <artifactId>zkclient</artifactId>
+          <version>0.10</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>checker-qual</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.checkerframework</groupId>-->
+          <!--<artifactId>checker</artifactId>-->
+          <!--<version>2.3.2</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>compiler</artifactId>
+          <version>2.3.2</version>
+      </dependency>
+
+      <!--<dependency>-->
+          <!--<groupId>org.checkerframework</groupId>-->
+          <!--<artifactId>jdk8</artifactId>-->
+          <!--<version>2.3.2</version>-->
+      <!--</dependency>-->
+
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>transmittable-thread-local</artifactId>
+          <version>2.5.1</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.netflix.hystrix</groupId>
+          <artifactId>hystrix-core</artifactId>
+          <version>1.5.12</version>
+      </dependency>
+
+      <dependency>
+          <groupId>cglib</groupId>
+          <artifactId>cglib</artifactId>
+          <version>3.2.7</version>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+          <version>3.0-alpha-1</version>
+          <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>io.lettuce</groupId>
+          <artifactId>lettuce-core</artifactId>
+          <version>5.1.0.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>5.1.46</version>
+          <scope>test</scope>
+      </dependency>
+
+      <dependency>
+          <groupId>com.codahale.metrics</groupId>
+          <artifactId>metrics-core</artifactId>
+          <version>3.0.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.vavr</groupId>
+          <artifactId>vavr</artifactId>
+          <version>0.9.2</version>
+      </dependency>
+
+  </dependencies>
+
+    <properties>
+        <!-- These properties will be set by the Maven Dependency plugin -->
+        <!--<annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>-->
+        <!-- Uncomment to use the Type Annotations compiler. -->
+        <!-- <typeAnnotationsJavac>${org.checkerframework:compiler:jar}</typeAnnotationsJavac> -->
+    </properties>
+
+  <build>
+      <finalName>journey-test</finalName>
+      <plugins>
+
+          <plugin>
+              <!-- This plugin will set properties values using dependency information -->
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>properties</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.6.1</version>
+              <configuration>
+                  <source>1.8</source>
+                  <target>1.8</target>
+                  <compilerVersion>1.8</compilerVersion>
+                  <!--<compilerArguments>-->
+                      <!--<Xmaxerrs>10000</Xmaxerrs>-->
+                      <!--<Xmaxwarns>10000</Xmaxwarns>-->
+                  <!--</compilerArguments>-->
+                  <!--<annotationProcessorPaths>-->
+                      <!--<path>-->
+                          <!--<groupId>org.checkerframework</groupId>-->
+                          <!--<artifactId>checker</artifactId>-->
+                          <!--<version>2.3.2</version>-->
+                      <!--</path>-->
+                  <!--</annotationProcessorPaths>-->
+                  <!--<annotationProcessors>-->
+                      <!--&lt;!&ndash; Add all the checkers you want to enable here &ndash;&gt;-->
+                      <!--<annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>-->
+                  <!--</annotationProcessors>-->
+                  <!--<compilerArgs>-->
+                      <!--<arg>-AprintErrorStack</arg>-->
+                      <!--&lt;!&ndash; location of the annotated JDK, which comes from a Maven dependency &ndash;&gt;-->
+                      <!--<arg>-Xbootclasspath/p:${annotatedJdk}</arg>-->
+                      <!--&lt;!&ndash; Uncomment the following line to use the type annotations compiler. &ndash;&gt;-->
+                      <!--&lt;!&ndash; <arg>-J-Xbootclasspath/p:${typeAnnotationsJavac}</arg> &ndash;&gt;-->
+                      <!--&lt;!&ndash; Uncomment the following line to turn type-checking warnings into errors. &ndash;&gt;-->
+                      <!--&lt;!&ndash; <arg>-Awarns</arg> &ndash;&gt;-->
+                  <!--</compilerArgs>-->
+              </configuration>
+          </plugin>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-plugin</artifactId>
+              <version>2.19.1</version>
+              <dependencies>
+                  <dependency>
+                      <groupId>org.apache.maven.surefire</groupId>
+                      <artifactId>surefire-junit47</artifactId>
+                      <version>2.19.1</version>
+                  </dependency>
+              </dependencies>
+              <configuration>
+                  <includes>
+                      <include>**/SurefireTest</include>
+                  </includes>
+              </configuration>
+          </plugin>
+
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+              <version>3.0.0</version>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <addClasspath>true</addClasspath>
+                      </manifest>
+                  </archive>
+                  <webResources>
+                      <resource>
+                          <directory>src/main/</directory>
+                      </resource>
+                  </webResources>
+              </configuration>
+          </plugin>
+
+      </plugins>
+  </build>
+</project>

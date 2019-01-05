@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration> <!-- 配置 -->
+
+    <!--<properties/>-->  <!-- 属性 -->
+    <!--<properties resource=""-->
+
+    <!--<settings>  &lt;!&ndash; 设置 &ndash;&gt;-->
+        <!--&lt;!&ndash; 配置默认执行器 SIMPLE 是普通执行器、REUSE 会重用预处理语句、BATCH 执行器将重用语句并执行批量更新 &ndash;&gt;-->
+        <!--<setting name="defaultExecutorType" value="SIMPLE"/>-->
+        <!--&lt;!&ndash; 设置超时时间 &ndash;&gt;-->
+        <!--<setting name="defaultStatementTimeout" value="10"/>-->
+        <!--&lt;!&ndash; 是否开启自动驼峰命名规则映射 &ndash;&gt;-->
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+        <!--&lt;!&ndash; 指定 Mybatis 创建具有延迟加载能力的对象所用到的代理工具 3.3。0(含)以上使用JAVASSIST，否则用 CGLIB &ndash;&gt;-->
+        <!--<setting name="proxyFactory" value=""/>-->
+    <!--</settings>-->
+
+    <typeAliases>
+        <typeAlias type="com.journey.entity.Task" alias="task"/>
+        <!--<package name=""/> 配合 @Alias -->
+    </typeAliases>
+
+    <!--<typeHandlers></typeHandlers>--><!-- 类型处理器 --> <!-- todo -->
+
+    <objectFactory type="com.journey.core.MyObjectFactory"/> <!-- 对象工厂 -->
+
+    <plugins>  <!--插件-->
+        <plugin interceptor="com.journey.plugin.NullPlugin"/>
+        <plugin interceptor="com.journey.plugin.SqlLogPlugin"/>
+    </plugins>
+    
+    <environments default="default"> <!-- 环境配置 -->
+        <environment id="default"> <!-- 环境变量 -->
+            <transactionManager type="JDBC"></transactionManager> <!-- 事务管理器 -->
+            <dataSource type="POOLED"><!-- 数据源 -->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3307/test"/>
+                <property name="username" value="root"/>
+                <property name="password" value="x757578255"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--<databaseIdProvider type=""--> <!-- 数据库厂商标识 -->
+
+    <mappers>
+        <mapper resource="com/journey/dao/TaskMapper.xml"/>
+        <!--<package name=""/>-->
+    </mappers>
+</configuration>

@@ -1,7 +1,27 @@
 
 .idea/
-journey-core/profiles.xml
-journey-core/target/
 journey-parent/journey-parent.iml
 journey-provider/journey-provider.iml
 
+journey-test/src/test/resources/
+journey-test/target/classes/com/
+journey-test/target/generated-sources/
+journey-test/target/generated-test-sources/
+journey-test/target/test-classes/
+journey-provider/src/
+journey-scala/project/
+journey-scala/src/test/
+journey-scala/target/
+journey-test/target/classes/applicationContext-dubbo.xml
+journey-test/target/journey-core/
+journey-test/target/maven-status/
+journey-test/journey-test.iml
+journery-base/journey-base.iml
+journery-base/target/
+journey-test/target/surefire-reports/
+java-lambda/lambda-test.iml
+java-lambda/src/test/
+journey-provider/target/
+/journey-test/Test/nbproject/private/
+journey-mybatis.iml
+target/
