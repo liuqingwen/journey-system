@@ -188,4 +188,21 @@ public class DateTest {
         System.out.println((int) (date.getTime()/1000));
         System.out.println(Integer.MAX_VALUE);
     }
+
+    @Test
+    public void test13() {
+
+        long time = 1547435961162L;
+        System.out.println(new Date(time));
+
+    }
+
+    @Test
+    public void test14() {
+
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println(new java.sql.Date(date.getTime()));
+
+    }
 }

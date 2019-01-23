@@ -127,5 +127,7 @@
     <orderEntry type="library" name="Maven: com.codahale.metrics:metrics-core:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: io.vavr:vavr:0.9.2" level="project" />
     <orderEntry type="library" name="Maven: io.vavr:vavr-match:0.9.2" level="project" />
+    <orderEntry type="library" name="Maven: tk.mybatis:mapper:4.0.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
   </component>
 </module>

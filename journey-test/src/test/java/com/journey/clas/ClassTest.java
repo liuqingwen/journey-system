@@ -7,10 +7,7 @@ import org.junit.Test;
 import sun.misc.SharedSecrets;
 
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author liuqingwen
@@ -139,6 +136,16 @@ public class ClassTest {
         Type genericSuperclass = (new ArrayList<Map<String, String>>() {}).getClass().getGenericSuperclass();
         Type actualTypeArgument = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0];
         System.out.println(actualTypeArgument);
+
+    }
+
+    @Test
+    public void test09() {
+
+        System.out.println(Arrays.toString(User.class.getDeclaredFields()));
+        for (Field field : User.class.getDeclaredFields()) {
+            System.out.println(field.getName());
+        }
 
     }
 }
