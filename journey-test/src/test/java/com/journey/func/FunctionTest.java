@@ -341,4 +341,14 @@ public class FunctionTest {
 //        System.out.println(round);
     }
 
+    @Test
+    public void test14() {
+
+        Function<Integer, Predicate<Object>> function = (arg) -> obj -> obj != null && org.apache.commons.lang.StringUtils.isNumeric(obj.toString()) && Integer.valueOf(obj.toString()).equals(arg);
+        Predicate<Object> predicate = function.apply(1);
+        boolean test = predicate.test(1);
+        System.out.println(test);
+
+    }
+
 }

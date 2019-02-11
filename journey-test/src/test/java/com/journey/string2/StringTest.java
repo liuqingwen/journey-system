@@ -204,4 +204,11 @@ public class StringTest {
         new StringAppend().format();
 
     }
+
+    @Test
+    public void test13() {
+
+        System.out.println(Pattern.compile("\\s*[,，、；;]\\s*").split("skin")[0]);
+
+    }
 }
