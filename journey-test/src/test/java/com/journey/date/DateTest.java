@@ -192,7 +192,7 @@ public class DateTest {
     @Test
     public void test13() {
 
-        long time = 1547435961162L;
+        long time = 1551337882588L;
         System.out.println(new Date(time));
 
     }
@@ -203,6 +203,13 @@ public class DateTest {
         Date date = new Date();
         System.out.println(date);
         System.out.println(new java.sql.Date(date.getTime()));
+
+    }
+
+    @Test
+    public void test15() {
+
+        System.out.println(System.currentTimeMillis());
 
     }
 }

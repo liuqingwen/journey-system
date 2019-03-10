@@ -211,4 +211,21 @@ public class StringTest {
         System.out.println(Pattern.compile("\\s*[,，、；;]\\s*").split("skin")[0]);
 
     }
+
+    @Test
+    public void test14() {
+
+        System.out.println(get());
+
+    }
+
+    public static String get() {
+
+        try {
+            return "2";
+        } finally {
+            return "1";
+        }
+
+    }
 }
