@@ -212,4 +212,22 @@ public class DateTest {
         System.out.println(System.currentTimeMillis());
 
     }
+
+    @Test
+    public void test16() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019, 1, 1, 0, 0, 0);
+
+        System.out.println(calendar.getTime().getTime());
+
+    }
+
+    @Test
+    public void test17() {
+
+        System.out.println(DateTimeFormatter.class.getSimpleName());
+        System.out.println(~(-3) + 1);
+
+    }
 }

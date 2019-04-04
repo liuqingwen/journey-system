@@ -2,6 +2,7 @@ package com.journey.lang;
 
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -51,6 +52,22 @@ public class SystemTest {
             }
         } catch (SocketException e) {
 
+        }
+
+    }
+
+    @Test
+    public void test03() {
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            for (;networkInterfaces.hasMoreElements();) {
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
+                if (networkInterface.getHardwareAddress() != null) {
+                    System.out.println(new String(networkInterface.getHardwareAddress()));
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
         }
 
     }
