@@ -204,4 +204,28 @@ public class StringTest {
         new StringAppend().format();
 
     }
+
+    @Test
+    public void test13() {
+
+        System.out.println(Pattern.compile("\\s*[,，、；;]\\s*").split("skin")[0]);
+
+    }
+
+    @Test
+    public void test14() {
+
+        System.out.println(2041089750 % 3);
+
+    }
+
+    public static String get() {
+
+        try {
+            return "2";
+        } finally {
+            return "1";
+        }
+
+    }
 }

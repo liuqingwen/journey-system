@@ -188,4 +188,46 @@ public class DateTest {
         System.out.println((int) (date.getTime()/1000));
         System.out.println(Integer.MAX_VALUE);
     }
+
+    @Test
+    public void test13() {
+
+        long time = 1551337882588L;
+        System.out.println(new Date(time));
+
+    }
+
+    @Test
+    public void test14() {
+
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println(new java.sql.Date(date.getTime()));
+
+    }
+
+    @Test
+    public void test15() {
+
+        System.out.println(System.currentTimeMillis());
+
+    }
+
+    @Test
+    public void test16() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019, 1, 1, 0, 0, 0);
+
+        System.out.println(calendar.getTime().getTime());
+
+    }
+
+    @Test
+    public void test17() {
+
+        System.out.println(DateTimeFormatter.class.getSimpleName());
+        System.out.println(~(-3) + 1);
+
+    }
 }

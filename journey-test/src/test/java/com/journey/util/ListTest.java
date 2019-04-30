@@ -1,7 +1,10 @@
 package com.journey.util;
 
+import com.google.common.collect.Lists;
+import com.journey.string2.Strings;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
@@ -49,6 +52,15 @@ public class ListTest {
 
         System.out.println(collect);
         System.out.println("打乱后Distinct长度：" + collect.stream().distinct().count());
+    }
+
+
+    @Test
+    public void test2() {
+
+        ArrayList<String> strings = Lists.newArrayList("1", "2", "3");
+        System.out.println(Strings.joint(",", strings.toArray()));
+
     }
 
 }

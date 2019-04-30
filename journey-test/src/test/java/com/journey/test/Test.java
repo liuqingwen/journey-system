@@ -655,4 +655,11 @@ public class Test {
         System.out.println(String.valueOf(Integer.valueOf(s) * 1000 / Integer.valueOf(s2)));
 
     }
+
+    @org.junit.Test
+    public void test51() {
+
+        System.out.println(1480384513 % 3);
+
+    }
 }

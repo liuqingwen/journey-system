@@ -86,6 +86,19 @@ public class StreamTest {
         return numCounter.getSum();
     }
 
+    @Test
+    public void test07() {
+
+//        Stream.of(1).flatMap(i -> Stream.generate(() -> 42)).map(i -> {
+//            System.out.println("processing...");
+//            return i;
+//        }).findAny().ifPresent(System.out::println);
+
+
+//        Stream.of(1, 2, 3, 4, 5).tak
+
+    }
+
 }
 
 final class NumCounter1 {
