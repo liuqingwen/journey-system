@@ -1,6 +1,7 @@
 package com.journey.test;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.journey.entity.WeiXinUser;
@@ -47,6 +48,21 @@ public class JSONTest {
 
         ArrayList<ImmutableMap<String, String>> immutableMaps = Lists.newArrayList(ImmutableMap.of("积分", "+10"), ImmutableMap.of("成长值", "+10"));
         System.out.println(JSON.toJSONString(immutableMaps));
+
+    }
+
+    @Test
+    public void test4() {
+
+        System.out.println(JSON.toJSONString(Lists.newArrayList(ImmutableMap.of("user", "liu"), ImmutableMap.of("user", "liu2"))));
+
+    }
+
+    @Test
+    public void test5() {
+
+        String arg = "{\"amount\":1,\"autoRenew\":3,\"chargeType\":1,\"endTime\":1560512350000,\"orderCode\":\"201905141939006432927\",\"productSubtype\":1,\"startTime\":1557833950000,\"status\":1,\"tradeCode\":\"4200000301201905143632645731\",\"uid\":1400096341}";
+        System.out.println(JSON.parseObject(arg, new TypeReference<Map<String, Object>>(){}));
 
     }
 

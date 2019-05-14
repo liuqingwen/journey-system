@@ -230,4 +230,13 @@ public class DateTest {
         System.out.println(~(-3) + 1);
 
     }
+
+    @Test
+    public void test18() {
+
+        Calendar instance = Calendar.getInstance();
+        instance.setTimeInMillis(1552184430972L);
+        System.out.println(instance.getTime());
+
+    }
 }

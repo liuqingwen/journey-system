@@ -63,4 +63,12 @@ public class ListTest {
 
     }
 
+    @Test
+    public void test3() {
+
+        List<Integer> list = Lists.newArrayList(1, 2, 3);
+        System.out.println(list.subList(1, 1));
+
+    }
+
 }

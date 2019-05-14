@@ -215,7 +215,8 @@ public class StringTest {
     @Test
     public void test14() {
 
-        System.out.println(2041089750 % 3);
+//        System.out.println(2028025265 % 3);
+        System.out.println(2028025265 % 100);
 
     }
 
