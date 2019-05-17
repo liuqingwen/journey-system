@@ -66,4 +66,11 @@ public class JSONTest {
 
     }
 
+    @Test
+    public void test6() {
+
+        System.out.println(2007897004L % 3);
+
+    }
+
 }

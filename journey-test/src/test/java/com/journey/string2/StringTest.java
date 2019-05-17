@@ -220,6 +220,13 @@ public class StringTest {
 
     }
 
+    @Test
+    public void test15() {
+
+        System.out.println(String.format("%02d", 0));
+
+    }
+
     public static String get() {
 
         try {
