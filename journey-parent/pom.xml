@@ -8,7 +8,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <packaging>pom</packaging>
 
     <properties>
-        <open.junit.version>4.12</open.junit.version>
+        <open.junit.version>4.13.1</open.junit.version>
         <open.spring.version>4.3.10.RELEASE</open.spring.version>
         <open.spring.data.version>2.0.4.RELEASE</open.spring.data.version>
         <open.mybatis.version>3.4.5</open.mybatis.version>
