@@ -16,7 +16,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
         <open.redis.jedis.version>2.9.0</open.redis.jedis.version>
         <open.redis.lettuce.version>5.0.0.RELEASE</open.redis.lettuce.version>
         <open.alibaba.json.version>1.2.41</open.alibaba.json.version>
-        <open.google.guava.version>24.1-jre</open.google.guava.version>
+        <open.google.guava.version>29.0-jre</open.google.guava.version>
         <open.google.colletions.version>1.0</open.google.colletions.version>
     </properties>
 
